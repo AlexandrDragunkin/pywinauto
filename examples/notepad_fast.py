@@ -89,7 +89,7 @@ def run_notepad():
     #    app.start_(r"c:\windows\system32\notepad.exe")
     app.start(r"notepad.exe")
 
-    app.Notepad.menu_select("File->PageSetup")
+    app.Notepad.menu_select("Файл->Параметры Страницы")
 
     # ----- Page Setup Dialog ----
     # Select the 4th combobox item
@@ -197,7 +197,7 @@ def run_notepad():
 
     # ----- Document Properties Dialog again ----
     doc_props.Cancel.close_click()
-    
+
     # for some reason my current printer driver
     # window does not close cleanly :(
     if doc_props.Cancel.Exists():

@@ -45,19 +45,19 @@ app.start(r"notepad.exe")
 
 app['Notepad'].wait('ready')
 
-app['Notepad'].menu_select("File->PageSetup")
+app['Notepad'].menu_select("Файл->Параметры Страницы")
 
 # ----- Page Setup Dialog ----
 # Select the 4th combobox item
-app['PageSetupDlg']['ComboBox1'].select(4)
+app['Параметры Страницы']['ComboBox1'].select(4)
 
 # Select the 'Letter' combobox item
-app['PageSetupDlg']['ComboBox1'].select("Letter")
+app['Параметры Страницы']['ComboBox1'].select("Letter")
 
 # ----- Next Page Setup Dialog ----
-app['PageSetupDlg']['Printer'].click()
+app['Параметры Страницы']['Printer'].click()
 
-app['PageSetupDlg']['Network'].click()
+app['Параметры Страницы']['Network'].click()
 
 # ----- Connect To Printer Dialog ----
 # Select a checkbox

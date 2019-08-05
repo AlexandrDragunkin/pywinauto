@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Example script for MS Paint
 
