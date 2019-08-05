@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pywinauto.element_info &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="../contents.html" />
+    <link rel="up" title="Basic User Input Modules" href="code.html" />
+    <link rel="next" title="pywinauto.win32_element_info" href="pywinauto.win32_element_info.html" />
+    <link rel="prev" title="pywinauto.backend" href="pywinauto.backend.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.win32_element_info.html" title="pywinauto.win32_element_info"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.backend.html" title="pywinauto.backend"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" accesskey="U">Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinauto-element-info">
+<h1>pywinauto.element_info<a class="headerlink" href="#pywinauto-element-info" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-pywinauto.element_info"></span><p>Interface for classes which should deal with different backend elements</p>
+<dl class="class">
+<dt id="pywinauto.element_info.ElementInfo">
+<em class="property">class </em><code class="descclassname">pywinauto.element_info.</code><code class="descname">ElementInfo</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract wrapper for an element</p>
+<dl class="method">
+<dt id="pywinauto.element_info.ElementInfo.children">
+<code class="descname">children</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.element_info.ElementInfo.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return children of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.class_name">
+<code class="descname">class_name</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the class name of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.control_id">
+<code class="descname">control_id</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.control_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.element_info.ElementInfo.descendants">
+<code class="descname">descendants</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.element_info.ElementInfo.descendants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return descendants of the element</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.element_info.ElementInfo.dump_window">
+<code class="descname">dump_window</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.element_info.ElementInfo.dump_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump an element to a set of properties</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.enabled">
+<code class="descname">enabled</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the element is enabled</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pywinauto.element_info.ElementInfo.filter_with_depth">
+<em class="property">static </em><code class="descname">filter_with_depth</code><span class="sig-paren">(</span><em>elements</em>, <em>root</em>, <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.element_info.ElementInfo.filter_with_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return filtered elements with particular depth level relative to the root</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.framework_id">
+<code class="descname">framework_id</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.framework_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the framework of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.handle">
+<code class="descname">handle</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the handle of the element</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.element_info.ElementInfo.has_depth">
+<code class="descname">has_depth</code><span class="sig-paren">(</span><em>root</em>, <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.element_info.ElementInfo.has_depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if element has particular depth level relative to the root</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.name">
+<code class="descname">name</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.parent">
+<code class="descname">parent</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the parent of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.process_id">
+<code class="descname">process_id</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.process_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of process that controls this element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.rectangle">
+<code class="descname">rectangle</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return rectangle of element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.rich_text">
+<code class="descname">rich_text</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.rich_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the element</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.element_info.ElementInfo.set_cache_strategy">
+<code class="descname">set_cache_strategy</code><span class="sig-paren">(</span><em>cached</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.element_info.ElementInfo.set_cache_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a cache strategy for frequently used attributes of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.element_info.ElementInfo.visible">
+<code class="descname">visible</code><a class="headerlink" href="#pywinauto.element_info.ElementInfo.visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the element is visible</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinauto.backend.html"
+                        title="previous chapter">pywinauto.backend</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinauto.win32_element_info.html"
+                        title="next chapter">pywinauto.win32_element_info</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/pywinauto.element_info.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.win32_element_info.html" title="pywinauto.win32_element_info"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.backend.html" title="pywinauto.backend"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" >Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

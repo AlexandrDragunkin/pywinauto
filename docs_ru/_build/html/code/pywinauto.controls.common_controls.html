@@ -1,0 +1,2567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pywinauto.controls.common_controls &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="../contents.html" />
+    <link rel="up" title="Basic User Input Modules" href="code.html" />
+    <link rel="next" title="pywinauto.controls.win32_controls" href="pywinauto.controls.win32_controls.html" />
+    <link rel="prev" title="pywinauto.controls.menuwrapper" href="pywinauto.controls.menuwrapper.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.win32_controls.html" title="pywinauto.controls.win32_controls"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.menuwrapper.html" title="pywinauto.controls.menuwrapper"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" accesskey="U">Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pywinauto.controls.common_controls">
+<span id="pywinauto-controls-common-controls"></span><h1>pywinauto.controls.common_controls<a class="headerlink" href="#module-pywinauto.controls.common_controls" title="Permalink to this headline">¶</a></h1>
+<p>Classes that wrap the Windows Common controls</p>
+<dl class="class">
+<dt id="pywinauto.controls.common_controls._toolbar_button">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">_toolbar_button</code><span class="sig-paren">(</span><em>index_</em>, <em>tb_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Wrapper around Toolbar button (TBBUTTONINFO) items</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.Click">
+<code class="descname">Click</code><span class="sig-paren">(</span><em>button='left'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.Click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.ClickInput">
+<code class="descname">ClickInput</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.ClickInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.HasStyle">
+<code class="descname">HasStyle</code><span class="sig-paren">(</span><em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.HasStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the button has the specified style</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.IsCheckable">
+<code class="descname">IsCheckable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.IsCheckable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button can be checked</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.IsChecked">
+<code class="descname">IsChecked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.IsChecked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button is in the checked state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.IsEnabled">
+<code class="descname">IsEnabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.IsEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button is in the pressed state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.IsPressable">
+<code class="descname">IsPressable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.IsPressable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button can be pressed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.IsPressed">
+<code class="descname">IsPressed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.IsPressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button is in the pressed state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.Rectangle">
+<code class="descname">Rectangle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.Rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rectangle of a button on the toolbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.State">
+<code class="descname">State</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state of the button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.Style">
+<code class="descname">Style</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.Style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the style of the button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.Text">
+<code class="descname">Text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.Text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.click">
+<code class="descname">click</code><span class="sig-paren">(</span><em>button='left'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.click_input">
+<code class="descname">click_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.has_style">
+<code class="descname">has_style</code><span class="sig-paren">(</span><em>style</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.has_style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the button has the specified style</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.is_checkable">
+<code class="descname">is_checkable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.is_checkable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button can be checked</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.is_checked">
+<code class="descname">is_checked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button is in the checked state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.is_enabled">
+<code class="descname">is_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button is in the pressed state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.is_pressable">
+<code class="descname">is_pressable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.is_pressable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button can be pressed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.is_pressed">
+<code class="descname">is_pressed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.is_pressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if the button is in the pressed state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.rectangle">
+<code class="descname">rectangle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rectangle of a button on the toolbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.state">
+<code class="descname">state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state of the button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.style">
+<code class="descname">style</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.style" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the style of the button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._toolbar_button.text">
+<code class="descname">text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._toolbar_button.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the button</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls._treeview_element">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">_treeview_element</code><span class="sig-paren">(</span><em>elem</em>, <em>tv_handle</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Wrapper around TreeView items</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Children">
+<code class="descname">Children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the direct children of this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Click">
+<code class="descname">Click</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the treeview item</p>
+<p>where can be any one of &#8220;text&#8221;, &#8220;icon&#8221;, &#8220;button&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.ClickInput">
+<code class="descname">ClickInput</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.ClickInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the treeview item</p>
+<p>where can be any one of &#8220;text&#8221;, &#8220;icon&#8221;, &#8220;button&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.ClientRect">
+<code class="descname">ClientRect</code><span class="sig-paren">(</span><em>text_area_rect=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.ClientRect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a rectangle of a text area of the item</p>
+<p>If <strong>text_area_rect</strong> is set to False then it will return
+a rectangle for the whole item (usually left is equal to 0).
+Defaults to True - which returns just the rectangle of the
+text of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Collapse">
+<code class="descname">Collapse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Collapse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collapse the children of this tree view item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Drop">
+<code class="descname">Drop</code><span class="sig-paren">(</span><em>button='left'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop at the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.EnsureVisible">
+<code class="descname">EnsureVisible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.EnsureVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the TreeView item is visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Expand">
+<code class="descname">Expand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expand the children of this tree view item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.GetChild">
+<code class="descname">GetChild</code><span class="sig-paren">(</span><em>child_spec</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.GetChild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the child item of this item</p>
+<p>Accepts either a string or an index.
+If a string is passed then it returns the child item
+with the best match for the string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.IsChecked">
+<code class="descname">IsChecked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.IsChecked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the TreeView item is checked or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.IsExpanded">
+<code class="descname">IsExpanded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.IsExpanded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate that the TreeView item is selected or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.IsSelected">
+<code class="descname">IsSelected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.IsSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate that the TreeView item is selected or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Item">
+<code class="descname">Item</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item itself</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Next">
+<code class="descname">Next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the next item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Select">
+<code class="descname">Select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the TreeView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.StartDragging">
+<code class="descname">StartDragging</code><span class="sig-paren">(</span><em>button='left'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.StartDragging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start dragging the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.State">
+<code class="descname">State</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.SubElements">
+<code class="descname">SubElements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.SubElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of children of this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.Text">
+<code class="descname">Text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.Text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.children">
+<code class="descname">children</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the direct children of this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.click">
+<code class="descname">click</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the treeview item</p>
+<p>where can be any one of &#8220;text&#8221;, &#8220;icon&#8221;, &#8220;button&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.click_input">
+<code class="descname">click_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the treeview item</p>
+<p>where can be any one of &#8220;text&#8221;, &#8220;icon&#8221;, &#8220;button&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.client_rect">
+<code class="descname">client_rect</code><span class="sig-paren">(</span><em>text_area_rect=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.client_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a rectangle of a text area of the item</p>
+<p>If <strong>text_area_rect</strong> is set to False then it will return
+a rectangle for the whole item (usually left is equal to 0).
+Defaults to True - which returns just the rectangle of the
+text of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.collapse">
+<code class="descname">collapse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.collapse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collapse the children of this tree view item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.drop">
+<code class="descname">drop</code><span class="sig-paren">(</span><em>button='left'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop at the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.ensure_visible">
+<code class="descname">ensure_visible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.ensure_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the TreeView item is visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.expand">
+<code class="descname">expand</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expand the children of this tree view item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.get_child">
+<code class="descname">get_child</code><span class="sig-paren">(</span><em>child_spec</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.get_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the child item of this item</p>
+<p>Accepts either a string or an index.
+If a string is passed then it returns the child item
+with the best match for the string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.is_checked">
+<code class="descname">is_checked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the TreeView item is checked or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.is_expanded">
+<code class="descname">is_expanded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.is_expanded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate that the TreeView item is selected or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.is_selected">
+<code class="descname">is_selected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate that the TreeView item is selected or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.item">
+<code class="descname">item</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item itself</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.next_item">
+<code class="descname">next_item</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.next_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the next item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.select">
+<code class="descname">select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the TreeView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.start_dragging">
+<code class="descname">start_dragging</code><span class="sig-paren">(</span><em>button='left'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.start_dragging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start dragging the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.state">
+<code class="descname">state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.sub_elements">
+<code class="descname">sub_elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.sub_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of children of this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._treeview_element.text">
+<code class="descname">text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._treeview_element.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the item</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls._listview_item">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">_listview_item</code><span class="sig-paren">(</span><em>lv_ctrl</em>, <em>item_index</em>, <em>subitem_index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Wrapper around ListView items</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Check">
+<code class="descname">Check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the ListView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Click">
+<code class="descname">Click</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the list view item</p>
+<p>where can be any one of &#8220;all&#8221;, &#8220;icon&#8221;, &#8220;text&#8221;, &#8220;select&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.ClickInput">
+<code class="descname">ClickInput</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.ClickInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the list view item</p>
+<p>where can be any one of &#8220;all&#8221;, &#8220;icon&#8221;, &#8220;text&#8221;, &#8220;select&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Deselect">
+<code class="descname">Deselect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Deselect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as not selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.EnsureVisible">
+<code class="descname">EnsureVisible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.EnsureVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the ListView item is visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Image">
+<code class="descname">Image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the image index of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Indent">
+<code class="descname">Indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the indent of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.IsChecked">
+<code class="descname">IsChecked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.IsChecked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the ListView item is checked or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.IsFocused">
+<code class="descname">IsFocused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.IsFocused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item has the focus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.IsSelected">
+<code class="descname">IsSelected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.IsSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Item">
+<code class="descname">Item</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item itself (LVITEM instance)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.ItemData">
+<code class="descname">ItemData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.ItemData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item data (dictionary)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Rectangle">
+<code class="descname">Rectangle</code><span class="sig-paren">(</span><em>area='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle of the item.</p>
+<p>Possible <code class="docutils literal"><span class="pre">area</span></code> values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;all&quot;</span></code>  Returns the bounding rectangle of the entire item, including the icon and label.</li>
+<li><code class="docutils literal"><span class="pre">&quot;icon&quot;</span></code>  Returns the bounding rectangle of the icon or small icon.</li>
+<li><code class="docutils literal"><span class="pre">&quot;text&quot;</span></code>  Returns the bounding rectangle of the item text.</li>
+<li><code class="docutils literal"><span class="pre">&quot;select&quot;</span></code>  Returns the union of the &#8220;icon&#8221; and &#8220;text&#8221; rectangles, but excludes columns in report view.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Select">
+<code class="descname">Select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.State">
+<code class="descname">State</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.Text">
+<code class="descname">Text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.Text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.UnCheck">
+<code class="descname">UnCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.UnCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uncheck the ListView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.check">
+<code class="descname">check</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the ListView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.click">
+<code class="descname">click</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the list view item</p>
+<p>where can be any one of &#8220;all&#8221;, &#8220;icon&#8221;, &#8220;text&#8221;, &#8220;select&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.click_input">
+<code class="descname">click_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>where='text'</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on the list view item</p>
+<p>where can be any one of &#8220;all&#8221;, &#8220;icon&#8221;, &#8220;text&#8221;, &#8220;select&#8221;, &#8220;check&#8221;
+defaults to &#8220;text&#8221;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.deselect">
+<code class="descname">deselect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.deselect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as not selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.ensure_visible">
+<code class="descname">ensure_visible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.ensure_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the ListView item is visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.image">
+<code class="descname">image</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the image index of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.indent">
+<code class="descname">indent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.indent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the indent of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.inplace_control">
+<code class="descname">inplace_control</code><span class="sig-paren">(</span><em>friendly_class_name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.inplace_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the editor HwndWrapper of the item</p>
+<p>Possible <code class="docutils literal"><span class="pre">friendly_class_name</span></code> values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;&quot;</span></code>  Return the first appeared in-place control</li>
+<li><code class="docutils literal"><span class="pre">&quot;friendlyclassname&quot;</span></code>  Returns editor with particular friendlyclassname</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.is_checked">
+<code class="descname">is_checked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the ListView item is checked or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.is_focused">
+<code class="descname">is_focused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.is_focused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item has the focus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.is_selected">
+<code class="descname">is_selected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.item">
+<code class="descname">item</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item itself (LVITEM instance)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.item_data">
+<code class="descname">item_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.item_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item data (dictionary)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.rectangle">
+<code class="descname">rectangle</code><span class="sig-paren">(</span><em>area='all'</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle of the item.</p>
+<p>Possible <code class="docutils literal"><span class="pre">area</span></code> values:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&quot;all&quot;</span></code>  Returns the bounding rectangle of the entire item, including the icon and label.</li>
+<li><code class="docutils literal"><span class="pre">&quot;icon&quot;</span></code>  Returns the bounding rectangle of the icon or small icon.</li>
+<li><code class="docutils literal"><span class="pre">&quot;text&quot;</span></code>  Returns the bounding rectangle of the item text.</li>
+<li><code class="docutils literal"><span class="pre">&quot;select&quot;</span></code>  Returns the union of the &#8220;icon&#8221; and &#8220;text&#8221; rectangles, but excludes columns in report view.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.select">
+<code class="descname">select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.state">
+<code class="descname">state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the state of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.text">
+<code class="descname">text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls._listview_item.uncheck">
+<code class="descname">uncheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls._listview_item.uncheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uncheck the ListView item</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.AnimationWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">AnimationWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.AnimationWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Animation common control</p>
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.AnimationWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.AnimationWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.AnimationWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Animation'</em><a class="headerlink" href="#pywinauto.controls.common_controls.AnimationWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.AnimationWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysAnimate32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.AnimationWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">CalendarWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Calendar common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.calc_min_rectangle">
+<code class="descname">calc_min_rectangle</code><span class="sig-paren">(</span><em>left</em>, <em>top</em>, <em>right</em>, <em>bottom</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.calc_min_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the minimum size that a rectangle needs to be to fit that number of calendars</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50001]</em><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.count">
+<code class="descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the calendars count</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Calendar'</em><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_border">
+<code class="descname">get_border</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the calendar border</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_current_date">
+<code class="descname">get_current_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_current_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the currently selected date</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_first_weekday">
+<code class="descname">get_first_weekday</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_first_weekday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get is not in current locale and if so first day of the week</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_id">
+<code class="descname">get_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get type of calendar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_month_delta">
+<code class="descname">get_month_delta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_month_delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the scroll rate for a month calendar control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_month_range">
+<code class="descname">get_month_range</code><span class="sig-paren">(</span><em>scope_of_range</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_month_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves date information that represents the high and low limits of a month calendar control&#8217;s display.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_today">
+<code class="descname">get_today</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_today" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get today date</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.get_view">
+<code class="descname">get_view</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.get_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the calendar view</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.hit_test">
+<code class="descname">hit_test</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.hit_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines which portion of a month calendar control is at a given point on the screen</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.place_in_calendar">
+<code class="descname">place_in_calendar</code><em class="property"> = {'background': &lt;MagicMock name='mock.win32defines.MCSC_BACKGROUND' id='71774448'&gt;, 'text': &lt;MagicMock name='mock.win32defines.MCSC_TEXT' id='71783472'&gt;, 'trailing_text': &lt;MagicMock name='mock.win32defines.MCSC_TRAILINGTEXT' id='71803120'&gt;, 'month_background': &lt;MagicMock name='mock.win32defines.MCSC_MONTHBK' id='71776912'&gt;, 'title_background': &lt;MagicMock name='mock.win32defines.MCSC_TITLEBK' id='71785904'&gt;, 'title_text': &lt;MagicMock name='mock.win32defines.MCSC_TITLETEXT' id='71796560'&gt;}</em><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.place_in_calendar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_border">
+<code class="descname">set_border</code><span class="sig-paren">(</span><em>border</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the calendar border</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_color">
+<code class="descname">set_color</code><span class="sig-paren">(</span><em>place_of_color</em>, <em>red</em>, <em>green</em>, <em>blue</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set some color in some place of calendar which you specify.</p>
+<p>Receive four parameters:
+- The first parameter may take few variants below:
+&#8216;background&#8217;, &#8216;month_background&#8217;, &#8216;text&#8217;, &#8216;title_background&#8217;,
+&#8216;title_text&#8217;, &#8216;trailing_text&#8217; ;
+- All other parameters should be integer from 0 to 255.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_current_date">
+<code class="descname">set_current_date</code><span class="sig-paren">(</span><em>year</em>, <em>month</em>, <em>day_of_week</em>, <em>day</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_current_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the currently selected date</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_day_states">
+<code class="descname">set_day_states</code><span class="sig-paren">(</span><em>month_states</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_day_states" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the day states for all months that are currently visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_first_weekday">
+<code class="descname">set_first_weekday</code><span class="sig-paren">(</span><em>dayNum</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_first_weekday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set first day of the week</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_id">
+<code class="descname">set_id</code><span class="sig-paren">(</span><em>ID</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the calendar type.</p>
+<p>Receive only one parameter, which takes variants below:
+&#8216;gregorian&#8217;, &#8216;gregorian_us&#8217;, &#8216;japan&#8217;, &#8216;taiwan&#8217;, &#8216;korea&#8217;,
+&#8216;hijri&#8217;, &#8216;thai&#8217;, &#8216;hebrew&#8217;, &#8216;gregorian_me_french&#8217;,
+&#8216;gregorian_arabic&#8217;, &#8216;gregorian_english_xlit&#8217;,
+&#8216;gregorian_french_xlit&#8217;, &#8216;umalqura&#8217;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_month_delta">
+<code class="descname">set_month_delta</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_month_delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the scroll rate for a month calendar control.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_today">
+<code class="descname">set_today</code><span class="sig-paren">(</span><em>year</em>, <em>month</em>, <em>day</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_today" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set today date</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.set_view">
+<code class="descname">set_view</code><span class="sig-paren">(</span><em>viewType</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.set_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the calendar view</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.CalendarWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysMonthCal32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.CalendarWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ComboBoxExWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ComboBoxExWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ComboBoxExWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows ComboBoxEx common control</p>
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ComboBoxExWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.ComboBoxExWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ComboBoxExWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'ComboBoxEx'</em><a class="headerlink" href="#pywinauto.controls.common_controls.ComboBoxExWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ComboBoxExWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.common_controls.ComboBoxExWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ComboBoxExWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['ComboBoxEx32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.ComboBoxExWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">DateTimePickerWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows DateTimePicker common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.GetTime">
+<code class="descname">GetTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.GetTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the currently selected time</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.SetTime">
+<code class="descname">SetTime</code><span class="sig-paren">(</span><em>year=0</em>, <em>month=0</em>, <em>day_of_week=0</em>, <em>day=0</em>, <em>hour=0</em>, <em>minute=0</em>, <em>second=0</em>, <em>milliseconds=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.SetTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the currently selected time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'DateTimePicker'</em><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.get_time">
+<code class="descname">get_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.get_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the currently selected time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.set_time">
+<code class="descname">set_time</code><span class="sig-paren">(</span><em>year=0</em>, <em>month=0</em>, <em>day_of_week=0</em>, <em>day=0</em>, <em>hour=0</em>, <em>minute=0</em>, <em>second=0</em>, <em>milliseconds=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.set_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the currently selected time</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.DateTimePickerWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysDateTimePick32', 'WindowsForms\\d*\\.SysDateTimePick32\\..*']</em><a class="headerlink" href="#pywinauto.controls.common_controls.DateTimePickerWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">HeaderWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows ListView Header common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.GetColumnRectangle">
+<code class="descname">GetColumnRectangle</code><span class="sig-paren">(</span><em>column_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.GetColumnRectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle for the column specified by column_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.GetColumnText">
+<code class="descname">GetColumnText</code><span class="sig-paren">(</span><em>column_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.GetColumnText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text for the column specified by column_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.ItemCount">
+<code class="descname">ItemCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.ItemCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of columns in this header</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.client_rects">
+<code class="descname">client_rects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.client_rects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all the client rectangles for the header control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50034]</em><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Header'</em><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.get_column_rectangle">
+<code class="descname">get_column_rectangle</code><span class="sig-paren">(</span><em>column_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.get_column_rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle for the column specified by column_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.get_column_text">
+<code class="descname">get_column_text</code><span class="sig-paren">(</span><em>column_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.get_column_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text for the column specified by column_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.item_count">
+<code class="descname">item_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.item_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of columns in this header</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the texts of the Header control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HeaderWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysHeader32', 'msvb_lib_header']</em><a class="headerlink" href="#pywinauto.controls.common_controls.HeaderWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.HotkeyWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">HotkeyWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.HotkeyWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Hotkey common control</p>
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HotkeyWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.HotkeyWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HotkeyWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Hotkey'</em><a class="headerlink" href="#pywinauto.controls.common_controls.HotkeyWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HotkeyWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.common_controls.HotkeyWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.HotkeyWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['msctls_hotkey32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.HotkeyWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.IPAddressWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">IPAddressWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.IPAddressWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows IPAddress common control</p>
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.IPAddressWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.IPAddressWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.IPAddressWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'IPAddress'</em><a class="headerlink" href="#pywinauto.controls.common_controls.IPAddressWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.IPAddressWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.common_controls.IPAddressWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.IPAddressWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysIPAddress32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.IPAddressWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ListViewWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows ListView common control</p>
+<p>This class derives from HwndWrapper - so has all the methods o
+that class also</p>
+<p><strong>see</strong> <a class="reference external" href="class-pywinauto.controls.hwndwrapper.HwndWrapper.html">hwndwrapper.HwndWrapper</a></p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.Check">
+<code class="descname">Check</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.Check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the ListView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.ColumnCount">
+<code class="descname">ColumnCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.ColumnCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of columns</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.ColumnWidths">
+<code class="descname">ColumnWidths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.ColumnWidths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all the column widths</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.Columns">
+<code class="descname">Columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.Columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information on the columns of the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.Deselect">
+<code class="descname">Deselect</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.Deselect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as not selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.GetColumn">
+<code class="descname">GetColumn</code><span class="sig-paren">(</span><em>col_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.GetColumn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information for a column of the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.GetHeaderControl">
+<code class="descname">GetHeaderControl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.GetHeaderControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Header control associated with the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.GetItem">
+<code class="descname">GetItem</code><span class="sig-paren">(</span><em>item_index</em>, <em>subitem_index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.GetItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item of the list view&#8221;</p>
+<ul class="simple">
+<li><strong>item_index</strong> Can be either an index of the item or a string
+with the text of the item you want returned.</li>
+<li><strong>subitem_index</strong> A zero based index of the item you want returned.
+Defaults to 0.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.GetItemRect">
+<code class="descname">GetItemRect</code><span class="sig-paren">(</span><em>item_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.GetItemRect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bounding rectangle of the list view item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.GetSelectedCount">
+<code class="descname">GetSelectedCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.GetSelectedCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of selected items</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.IsFocused">
+<code class="descname">IsFocused</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.IsFocused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item has the focus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.IsSelected">
+<code class="descname">IsSelected</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.IsSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.Item">
+<code class="descname">Item</code><span class="sig-paren">(</span><em>item_index</em>, <em>subitem_index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item of the list view&#8221;</p>
+<ul class="simple">
+<li><strong>item_index</strong> Can be either an index of the item or a string
+with the text of the item you want returned.</li>
+<li><strong>subitem_index</strong> A zero based index of the item you want returned.
+Defaults to 0.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.ItemCount">
+<code class="descname">ItemCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.ItemCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of items in the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.Items">
+<code class="descname">Items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.Items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the items in the list view</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.Select">
+<code class="descname">Select</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.UnCheck">
+<code class="descname">UnCheck</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.UnCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uncheck the ListView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the ListView item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.column_count">
+<code class="descname">column_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.column_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of columns</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.column_widths">
+<code class="descname">column_widths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.column_widths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all the column widths</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.columns">
+<code class="descname">columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information on the columns of the ListView</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.deselect">
+<code class="descname">deselect</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.deselect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as not selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'ListView'</em><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.get_column">
+<code class="descname">get_column</code><span class="sig-paren">(</span><em>col_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.get_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information for a column of the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.get_header_control">
+<code class="descname">get_header_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.get_header_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Header control associated with the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.get_item">
+<code class="descname">get_item</code><span class="sig-paren">(</span><em>item_index</em>, <em>subitem_index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.get_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item of the list view&#8221;</p>
+<ul class="simple">
+<li><strong>item_index</strong> Can be either an index of the item or a string
+with the text of the item you want returned.</li>
+<li><strong>subitem_index</strong> A zero based index of the item you want returned.
+Defaults to 0.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.get_item_rect">
+<code class="descname">get_item_rect</code><span class="sig-paren">(</span><em>item_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.get_item_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bounding rectangle of the list view item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.get_selected_count">
+<code class="descname">get_selected_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.get_selected_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of selected items</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.is_checked">
+<code class="descname">is_checked</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the ListView item is checked or not</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.is_focused">
+<code class="descname">is_focused</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.is_focused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item has the focus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.is_selected">
+<code class="descname">is_selected</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.item">
+<code class="descname">item</code><span class="sig-paren">(</span><em>item_index</em>, <em>subitem_index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the item of the list view&#8221;</p>
+<ul class="simple">
+<li><strong>item_index</strong> Can be either an index of the item or a string
+with the text of the item you want returned.</li>
+<li><strong>subitem_index</strong> A zero based index of the item you want returned.
+Defaults to 0.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.item_count">
+<code class="descname">item_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.item_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of items in the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the items in the list view</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the item as selected</p>
+<p>The ListView control must be enabled and visible before an
+Item can be selected otherwise an exception is raised</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the texts for the ListView control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.uncheck">
+<code class="descname">uncheck</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.uncheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uncheck the ListView item</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysListView32', 'WindowsForms\\d*\\.SysListView32\\..*', 'TSysListView', 'ListView.*WndClass']</em><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ListViewWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.common_controls.ListViewWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.PagerWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">PagerWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Pager common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.GetPosition">
+<code class="descname">GetPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.GetPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current position of the pager</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.SetPosition">
+<code class="descname">SetPosition</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.SetPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current position of the pager</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Pager'</em><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.get_position">
+<code class="descname">get_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current position of the pager</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.set_position">
+<code class="descname">set_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.set_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current position of the pager</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.PagerWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysPager']</em><a class="headerlink" href="#pywinauto.controls.common_controls.PagerWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ProgressWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Progress common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.GetPosition">
+<code class="descname">GetPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.GetPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current position of the progress bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.GetState">
+<code class="descname">GetState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.GetState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the state of the progress bar</p>
+<dl class="docutils">
+<dt>State will be one of the following constants:</dt>
+<dd><ul class="first last simple">
+<li>PBST_NORMAL</li>
+<li>PBST_ERROR</li>
+<li>PBST_PAUSED</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.GetStep">
+<code class="descname">GetStep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.GetStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the step size of the progress bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.SetPosition">
+<code class="descname">SetPosition</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.SetPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current position of the progress bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.StepIt">
+<code class="descname">StepIt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.StepIt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the progress bar one step size forward</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50012]</em><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Progress'</em><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.get_position">
+<code class="descname">get_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current position of the progress bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.get_step">
+<code class="descname">get_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.get_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the step size of the progress bar</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.set_position">
+<code class="descname">set_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.set_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current position of the progress bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.set_state">
+<code class="descname">set_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.set_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the state of the progress bar</p>
+<dl class="docutils">
+<dt>State will be one of the following constants:</dt>
+<dd><ul class="first last simple">
+<li>PBST_NORMAL</li>
+<li>PBST_ERROR</li>
+<li>PBST_PAUSED</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.step_it">
+<code class="descname">step_it</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.step_it" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the progress bar one step size forward</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ProgressWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['msctls_progress', 'msctls_progress32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.ProgressWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ReBarWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows ReBar common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.BandCount">
+<code class="descname">BandCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.BandCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of bands in the control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.GetBand">
+<code class="descname">GetBand</code><span class="sig-paren">(</span><em>band_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.GetBand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a band of the ReBar control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.GetToolTipsControl">
+<code class="descname">GetToolTipsControl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.GetToolTipsControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tooltip control associated with this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.band_count">
+<code class="descname">band_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.band_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of bands in the control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'ReBar'</em><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.get_band">
+<code class="descname">get_band</code><span class="sig-paren">(</span><em>band_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.get_band" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a band of the ReBar control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.get_tool_tips_control">
+<code class="descname">get_tool_tips_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.get_tool_tips_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tooltip control associated with this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the texts of the Rebar</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['ReBarWindow32']</em><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ReBarWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.common_controls.ReBarWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">StatusBarWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Status Bar common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.BorderWidths">
+<code class="descname">BorderWidths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.BorderWidths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the border widths of the StatusBar</p>
+<p>A dictionary of the 3 available widths is returned:
+Horizontal - the horizontal width
+Vertical - The width above and below the status bar parts
+Inter - The width between parts of the status bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.GetPartRect">
+<code class="descname">GetPartRect</code><span class="sig-paren">(</span><em>part_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.GetPartRect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle of the part specified by part_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.GetPartText">
+<code class="descname">GetPartText</code><span class="sig-paren">(</span><em>part_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.GetPartText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the part specified by part_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.PartCount">
+<code class="descname">PartCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.PartCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of parts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.PartRightEdges">
+<code class="descname">PartRightEdges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.PartRightEdges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the widths of the parts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.border_widths">
+<code class="descname">border_widths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.border_widths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the border widths of the StatusBar</p>
+<p>A dictionary of the 3 available widths is returned:
+Horizontal - the horizontal width
+Vertical - The width above and below the status bar parts
+Inter - The width between parts of the status bar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.client_rects">
+<code class="descname">client_rects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.client_rects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the client rectangles for the control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50017]</em><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'StatusBar'</em><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.get_part_rect">
+<code class="descname">get_part_rect</code><span class="sig-paren">(</span><em>part_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.get_part_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle of the part specified by part_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.get_part_text">
+<code class="descname">get_part_text</code><span class="sig-paren">(</span><em>part_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.get_part_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the part specified by part_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.part_count">
+<code class="descname">part_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.part_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of parts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.part_right_edges">
+<code class="descname">part_right_edges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.part_right_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the widths of the parts</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the texts for the control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['msctls_statusbar32', '.*StatusBar', 'WindowsForms\\d*\\.msctls_statusbar32\\..*']</em><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.StatusBarWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.common_controls.StatusBarWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">TabControlWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Tab common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.GetSelectedTab">
+<code class="descname">GetSelectedTab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.GetSelectedTab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the selected tab</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.GetTabRect">
+<code class="descname">GetTabRect</code><span class="sig-paren">(</span><em>tab_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.GetTabRect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle to the tab specified by tab_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.GetTabText">
+<code class="descname">GetTabText</code><span class="sig-paren">(</span><em>tab_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.GetTabText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the tab</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.RowCount">
+<code class="descname">RowCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.RowCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of rows of tabs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.Select">
+<code class="descname">Select</code><span class="sig-paren">(</span><em>tab</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the specified tab on the tab control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.TabCount">
+<code class="descname">TabCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.TabCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of tabs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.client_rects">
+<code class="descname">client_rects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.client_rects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the client rectangles for the Tab Control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50018]</em><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'TabControl'</em><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.get_properties">
+<code class="descname">get_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.get_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the properties of the TabControl as a Dictionary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.get_selected_tab">
+<code class="descname">get_selected_tab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.get_selected_tab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the selected tab</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.get_tab_rect">
+<code class="descname">get_tab_rect</code><span class="sig-paren">(</span><em>tab_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.get_tab_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle to the tab specified by tab_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.get_tab_text">
+<code class="descname">get_tab_text</code><span class="sig-paren">(</span><em>tab_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.get_tab_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the tab</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.row_count">
+<code class="descname">row_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.row_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of rows of tabs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>tab</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the specified tab on the tab control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.tab_count">
+<code class="descname">tab_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.tab_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of tabs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the texts of the Tab Control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysTabControl32', 'WindowsForms\\d*\\.SysTabControl32\\..*']</em><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TabControlWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.common_controls.TabControlWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ToolTip">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ToolTip</code><span class="sig-paren">(</span><em>ctrl</em>, <em>tip_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Class that Wraps a single tip from a ToolTip control</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ToolTipsWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows ToolTips common control (not fully implemented)</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.GetTip">
+<code class="descname">GetTip</code><span class="sig-paren">(</span><em>tip_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.GetTip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the particular tooltip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.GetTipText">
+<code class="descname">GetTipText</code><span class="sig-paren">(</span><em>tip_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.GetTipText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the tooltip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.ToolCount">
+<code class="descname">ToolCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.ToolCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of tooltips</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'ToolTips'</em><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.get_tip">
+<code class="descname">get_tip</code><span class="sig-paren">(</span><em>tip_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.get_tip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the particular tooltip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.get_tip_text">
+<code class="descname">get_tip_text</code><span class="sig-paren">(</span><em>tip_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.get_tip_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the tooltip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of all the tooltips</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.tool_count">
+<code class="descname">tool_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.tool_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of tooltips</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ToolTipsWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['tooltips_class32', '.*ToolTip', '#32774', 'MS_WINNOTE', 'VBBubble']</em><a class="headerlink" href="#pywinauto.controls.common_controls.ToolTipsWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">ToolbarWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Toolbar common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.Button">
+<code class="descname">Button</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>exact=True</em>, <em>by_tooltip=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.Button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the button at index button_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.ButtonCount">
+<code class="descname">ButtonCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.ButtonCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of buttons on the ToolBar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.CheckButton">
+<code class="descname">CheckButton</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>make_checked</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.CheckButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find where the button is and click it if it&#8217;s unchecked and vice versa</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.GetButton">
+<code class="descname">GetButton</code><span class="sig-paren">(</span><em>button_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.GetButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return information on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.GetButtonRect">
+<code class="descname">GetButtonRect</code><span class="sig-paren">(</span><em>button_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.GetButtonRect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rectangle of a button on the toolbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.GetButtonStruct">
+<code class="descname">GetButtonStruct</code><span class="sig-paren">(</span><em>button_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.GetButtonStruct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TBBUTTON structure on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.GetToolTipsControl">
+<code class="descname">GetToolTipsControl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.GetToolTipsControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tooltip control associated with this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.MenuBarClickInput">
+<code class="descname">MenuBarClickInput</code><span class="sig-paren">(</span><em>path</em>, <em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.MenuBarClickInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select menu bar items by path (experimental!)</p>
+<p>The path is specified by a list of items separated by &#8216;-&gt;&#8217; each Item
+can be the zero based index of the item to return prefaced by # e.g. #1.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>&#8220;#1 -&gt; #0&#8221;,
+&#8220;#1-&gt;#0-&gt;#0&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.PressButton">
+<code class="descname">PressButton</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.PressButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find where the button is and click it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.TipTexts">
+<code class="descname">TipTexts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.TipTexts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tip texts of the Toolbar (without window text)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.button">
+<code class="descname">button</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>exact=True</em>, <em>by_tooltip=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the button at index button_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.button_count">
+<code class="descname">button_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.button_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of buttons on the ToolBar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.check_button">
+<code class="descname">check_button</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>make_checked</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.check_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find where the button is and click it if it&#8217;s unchecked and vice versa</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Toolbar'</em><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.get_button">
+<code class="descname">get_button</code><span class="sig-paren">(</span><em>button_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.get_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return information on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.get_button_rect">
+<code class="descname">get_button_rect</code><span class="sig-paren">(</span><em>button_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.get_button_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the rectangle of a button on the toolbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.get_button_struct">
+<code class="descname">get_button_struct</code><span class="sig-paren">(</span><em>button_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.get_button_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TBBUTTON structure on the Toolbar button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.get_tool_tips_control">
+<code class="descname">get_tool_tips_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.get_tool_tips_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tooltip control associated with this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.menu_bar_click_input">
+<code class="descname">menu_bar_click_input</code><span class="sig-paren">(</span><em>path</em>, <em>app</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.menu_bar_click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select menu bar items by path (experimental!)</p>
+<p>The path is specified by a list of items separated by &#8216;-&gt;&#8217; each Item
+can be the zero based index of the item to return prefaced by # e.g. #1.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>&#8220;#1 -&gt; #0&#8221;,
+&#8220;#1-&gt;#0-&gt;#0&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.press_button">
+<code class="descname">press_button</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.press_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find where the button is and click it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the texts of the Toolbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.tip_texts">
+<code class="descname">tip_texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.tip_texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tip texts of the Toolbar (without window text)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['ToolbarWindow32', 'WindowsForms\\d*\\.ToolbarWindow32\\..*', 'Afx:ToolBar:.*']</em><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.ToolbarWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.common_controls.ToolbarWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">TrackbarWrapper</code><span class="sig-paren">(</span><em>element_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows Trackbar common control</p>
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50015]</em><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'Trackbar'</em><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_channel_rect">
+<code class="descname">get_channel_rect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_channel_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get position of the bounding rectangle for a Trackbar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_line_size">
+<code class="descname">get_line_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_line_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of logical positions the trackbar&#8217;s slider</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_num_ticks">
+<code class="descname">get_num_ticks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_num_ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get trackbar num ticks</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_page_size">
+<code class="descname">get_page_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_page_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of logical positions for the trackbar&#8217;s slider</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_position">
+<code class="descname">get_position</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get trackbar position</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_range_max">
+<code class="descname">get_range_max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_range_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get max available trackbar value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_range_min">
+<code class="descname">get_range_min</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_range_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get min available trackbar value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_sel_end">
+<code class="descname">get_sel_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_sel_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get end of selection</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_sel_start">
+<code class="descname">get_sel_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_sel_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get start of selection</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.get_tooltips_control">
+<code class="descname">get_tooltips_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.get_tooltips_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get trackbar tooltip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.set_line_size">
+<code class="descname">set_line_size</code><span class="sig-paren">(</span><em>line_size</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.set_line_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set trackbar line size</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.set_page_size">
+<code class="descname">set_page_size</code><span class="sig-paren">(</span><em>page_size</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.set_page_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set trackbar page size</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.set_position">
+<code class="descname">set_position</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.set_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set trackbar position</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.set_range_max">
+<code class="descname">set_range_max</code><span class="sig-paren">(</span><em>range_max</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.set_range_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set max available trackbar value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.set_range_min">
+<code class="descname">set_range_min</code><span class="sig-paren">(</span><em>range_min</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.set_range_min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set min available trackbar value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.set_sel">
+<code class="descname">set_sel</code><span class="sig-paren">(</span><em>sel_start</em>, <em>sel_end</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.set_sel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set start and end of selection</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TrackbarWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['msctls_trackbar']</em><a class="headerlink" href="#pywinauto.controls.common_controls.TrackbarWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">TreeViewWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows TreeView common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.EnsureVisible">
+<code class="descname">EnsureVisible</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.EnsureVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the TreeView item is visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.GetItem">
+<code class="descname">GetItem</code><span class="sig-paren">(</span><em>path</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.GetItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the TreeView item</p>
+<ul class="simple">
+<li><strong>path</strong> the path to the item to return. This can be one of
+the following:<ul>
+<li>A string separated by \ characters. The first character must
+be \. This string is split on the \ characters and each of
+these is used to find the specific child at each level. The
+\ represents the root item - so you don&#8217;t need to specify the
+root itself.</li>
+<li>A list/tuple of strings - The first item should be the root
+element.</li>
+<li>A list/tuple of integers - The first item the index which root
+to select.</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.IsSelected">
+<code class="descname">IsSelected</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.IsSelected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.Item">
+<code class="descname">Item</code><span class="sig-paren">(</span><em>path</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.Item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the TreeView item</p>
+<ul class="simple">
+<li><strong>path</strong> the path to the item to return. This can be one of
+the following:<ul>
+<li>A string separated by \ characters. The first character must
+be \. This string is split on the \ characters and each of
+these is used to find the specific child at each level. The
+\ represents the root item - so you don&#8217;t need to specify the
+root itself.</li>
+<li>A list/tuple of strings - The first item should be the root
+element.</li>
+<li>A list/tuple of integers - The first item the index which root
+to select.</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.ItemCount">
+<code class="descname">ItemCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.ItemCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the count of the items in the treeview</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.PrintItems">
+<code class="descname">PrintItems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.PrintItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all items with line indents</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.Root">
+<code class="descname">Root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.Root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the root element of the tree view</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.Roots">
+<code class="descname">Roots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.Roots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get root items of the control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.Select">
+<code class="descname">Select</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.Select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the treeview item</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50023]</em><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.ensure_visible">
+<code class="descname">ensure_visible</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.ensure_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the TreeView item is visible</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'TreeView'</em><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.get_item">
+<code class="descname">get_item</code><span class="sig-paren">(</span><em>path</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.get_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the TreeView item</p>
+<ul class="simple">
+<li><strong>path</strong> the path to the item to return. This can be one of
+the following:<ul>
+<li>A string separated by \ characters. The first character must
+be \. This string is split on the \ characters and each of
+these is used to find the specific child at each level. The
+\ represents the root item - so you don&#8217;t need to specify the
+root itself.</li>
+<li>A list/tuple of strings - The first item should be the root
+element.</li>
+<li>A list/tuple of integers - The first item the index which root
+to select.</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.get_properties">
+<code class="descname">get_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.get_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the properties for the control as a dictionary</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.is_selected">
+<code class="descname">is_selected</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the item is selected</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.item">
+<code class="descname">item</code><span class="sig-paren">(</span><em>path</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the TreeView item</p>
+<ul class="simple">
+<li><strong>path</strong> the path to the item to return. This can be one of
+the following:<ul>
+<li>A string separated by \ characters. The first character must
+be \. This string is split on the \ characters and each of
+these is used to find the specific child at each level. The
+\ represents the root item - so you don&#8217;t need to specify the
+root itself.</li>
+<li>A list/tuple of strings - The first item should be the root
+element.</li>
+<li>A list/tuple of integers - The first item the index which root
+to select.</li>
+</ul>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.item_count">
+<code class="descname">item_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.item_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the count of the items in the treeview</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.print_items">
+<code class="descname">print_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.print_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all items with line indents</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.roots">
+<code class="descname">roots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.roots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get root items of the control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the treeview item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all the text for the tree view</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.tree_root">
+<code class="descname">tree_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.tree_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the root element of the tree view</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['SysTreeView32', 'WindowsForms\\d*\\.SysTreeView32\\..*', 'TTreeView', 'TreeList.TreeListCtrl']</em><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.TreeViewWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.common_controls.TreeViewWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.common_controls.</code><code class="descname">UpDownWrapper</code><span class="sig-paren">(</span><em>hwnd</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.hwndwrapper.html#pywinauto.controls.hwndwrapper.HwndWrapper" title="pywinauto.controls.hwndwrapper.HwndWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.hwndwrapper.HwndWrapper</span></code></a></p>
+<p>Class that wraps Windows UpDown common control</p>
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.Decrement">
+<code class="descname">Decrement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.Decrement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrement the number in the UpDown control by one</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.GetBase">
+<code class="descname">GetBase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.GetBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the base the UpDown control (either 10 or 16)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.GetBuddyControl">
+<code class="descname">GetBuddyControl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.GetBuddyControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the buddy control of the updown control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.GetRange">
+<code class="descname">GetRange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.GetRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lower, upper range of the up down control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.GetValue">
+<code class="descname">GetValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.GetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current value of the UpDown control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.Increment">
+<code class="descname">Increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.Increment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment the number in the UpDown control by one</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.SetBase">
+<code class="descname">SetBase</code><span class="sig-paren">(</span><em>base_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.SetBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the base the UpDown control (either 10 or 16)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.SetValue">
+<code class="descname">SetValue</code><span class="sig-paren">(</span><em>new_pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.SetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the of the UpDown control to some integer value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.controltypes">
+<code class="descname">controltypes</code><em class="property"> = [50016]</em><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.controltypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.decrement">
+<code class="descname">decrement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.decrement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrement the number in the UpDown control by one</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = 'UpDown'</em><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.get_base">
+<code class="descname">get_base</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.get_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the base the UpDown control (either 10 or 16)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.get_buddy_control">
+<code class="descname">get_buddy_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.get_buddy_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the buddy control of the updown control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.get_range">
+<code class="descname">get_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.get_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lower, upper range of the up down control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.get_value">
+<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current value of the UpDown control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.increment">
+<code class="descname">increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.increment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment the number in the UpDown control by one</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.set_base">
+<code class="descname">set_base</code><span class="sig-paren">(</span><em>base_value</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.set_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the base the UpDown control (either 10 or 16)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.set_value">
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>new_pos</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.set_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value of the of the UpDown control to some integer value</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.common_controls.UpDownWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = ['msctls_updown32', 'msctls_updown']</em><a class="headerlink" href="#pywinauto.controls.common_controls.UpDownWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinauto.controls.menuwrapper.html"
+                        title="previous chapter">pywinauto.controls.menuwrapper</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinauto.controls.win32_controls.html"
+                        title="next chapter">pywinauto.controls.win32_controls</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/pywinauto.controls.common_controls.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.win32_controls.html" title="pywinauto.controls.win32_controls"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.menuwrapper.html" title="pywinauto.controls.menuwrapper"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" >Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Руководство по началу работы &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="contents.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>Руководство по началу работы<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>После того, как установили pywinauto - что дальше?
+Самое первое, что необходимо, это определить, какая технология (pywinauto&#8217;s backend) может быть использована для вашего приложения.</p>
+<p>Список поддерживаемых специальных возможностей в Windows:</p>
+<blockquote>
+<div><ul>
+<li><dl class="first docutils">
+<dt><strong>Win32 API</strong> (<code class="docutils literal"><span class="pre">backend=&quot;win32&quot;</span></code>) - бэкэнд по умолчанию на данный момент</dt>
+<dd><ul class="first last simple">
+<li>MFC, VB6, VCL, простые элементы управления WinForms и большинство старых унаследованных приложений</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>MS UI Automation</strong> (<code class="docutils literal"><span class="pre">backend=&quot;uia&quot;</span></code>)</dt>
+<dd><ul class="first simple">
+<li>WinForms, WPF, Store apps, Qt5, browsers</li>
+</ul>
+<p class="last">Примечание: Chrome требует <code class="docutils literal"><span class="pre">--force-renderer-accessibility</span></code> флаг в командной строеке перед запуском. Пользовательские свойства и элементы управления не поддерживаются из-за ограничений библиотеки Python comtypes.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>AT SPI для Linux и Apple Accessibility API пока находятся в долгосрочной перспективе.</p>
+<div class="section" id="gui-objects-inspection-spy-tools">
+<h2>GUI Objects Inspection / Spy Tools<a class="headerlink" href="#gui-objects-inspection-spy-tools" title="Permalink to this headline">¶</a></h2>
+<p>Если вы все еще не уверены, какой движок наиболее подходит для вас, попробуйте использовать object inspection / spy tools из бесплатных:
+download them from GitHub repo <a class="reference external" href="https://github.com/blackrosezy/gui-inspect-tool">gui-inspect-tool</a>.</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Spy++</strong> включен в дистрибутив MS Visual Studio (даже Express или Community) и доступен через меню Start. It uses Win32 API. Это означает, что если Spy++ может показать все элементы управления, то <code class="docutils literal"><span class="pre">&quot;win32&quot;</span></code> - это то, что вам нужно.
+<em>AutoIt Window Info</em> инструмент представляет собой своего рода клон Spy++.</p>
+</li>
+<li><p class="first"><strong>Inspect.exe</strong> еще один замечательный инструмент, созданный Microsoft. Он включен в Windows SDK, так что его можно найти в следующем месте в 64-разрядной версии Windows:</p>
+<div class="highlight-python"><div class="highlight"><pre>C:\Program Files (x86)\Windows Kits\&lt;winver&gt;\bin\x64
+</pre></div>
+</div>
+<p>Переключите Inspect.exe в режим <strong>UIA</strong> (с помощью MS UI Automation). Если он сможет показать больше элементов управления и их свойств, чем Spy++, вероятно,  <code class="docutils literal"><span class="pre">&quot;uia&quot;</span></code> - ваш выбор.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://github.com/pywinauto/py_inspect">py_inspect</a> является прототипом multi-backend spy tool на основе Pywinauto. Переключение между доступными бэкэндами сможет показать вам разницу в иерархии с бэкэндами &#8220;win32&#8221; и &#8220;uia&#8221;. <strong>py_inspect</strong> это будущая замена <a class="reference external" href="https://github.com/pywinauto/SWAPY">SWAPY</a>, который поддерживает только &#8220;win32&#8221; на момент выхода pywinauto==0.5.4. Начальная реализация py_inspect содержит всего около 150 строк кода благодаря современной архитектуре pywinauto 0.6.0+.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Если всё же, некоторые или все элементы управления не доступны всем предложенным инструментам контроля, все еще возможно управлять приложением, генерируя события мыши и клавиатуры, используя базовые модули <a class="reference external" href="code/pywinauto.mouse.html">mouse</a> и <a class="reference external" href="code/pywinauto.keyboard.html">keyboard</a>.</p>
+</div>
+<div class="section" id="id2">
+<h2>Точки входа для автоматизации<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Итак, у вас есть приложение, вы знаете, что оно поддерживает одну из упомянутых технологий. А что дальше?</p>
+<p>Сначала вы должны запустить приложение или подключиться к существующему экземпляру приложения. Это можно сделать с помощью объекта <code class="docutils literal"><span class="pre">Application</span></code>. Это не просто клон <code class="docutils literal"><span class="pre">subprocess.Popen</span></code>, но точка входа для дальнейшей автоматизации, ограничивающей всю область действия границами процесса. Полезно контролировать несколько экземпляров приложения (вы работаете с одним экземпляром, не беспокоясь о другом).</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pywinauto.application</span> <span class="kn">import</span> <span class="n">Application</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s">&quot;uia&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="s">&#39;notepad.exe&#39;</span><span class="p">)</span>
+
+<span class="c"># описать окно внутри процесса Notepad.exe</span>
+<span class="n">dlg_spec</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">UntitledNotepad</span>
+<span class="c"># ждать, пока окно действительно станет открыто</span>
+<span class="n">actionable_dlg</span> <span class="o">=</span> <span class="n">dlg_spec</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="s">&#39;visible&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Если вы хотите осуществлять навигацию за границам процесса (скажем, Win10 Calculator ловко отображает свои виджеты в нескольких процессах), ваша точка входа-это объект <code class="docutils literal"><span class="pre">Desktop</span></code>.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span>
+<span class="kn">from</span> <span class="nn">pywinauto</span> <span class="kn">import</span> <span class="n">Desktop</span>
+
+<span class="n">Popen</span><span class="p">(</span><span class="s">&#39;calc.exe&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">dlg</span> <span class="o">=</span> <span class="n">Desktop</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s">&quot;uia&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Calculator</span>
+<span class="n">dlg</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="s">&#39;visible&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Application</strong> и <strong>Desktop</strong> оба объекта бэкэнд-специфичны. Нет необходимости использовать имя бэкэнда явно при дальнейших действиях.</p>
+</div>
+<div class="section" id="window-specification">
+<h2>Window Specification<a class="headerlink" href="#window-specification" title="Permalink to this headline">¶</a></h2>
+<p>Это основная концепция для API pywinauto верхнего уровня. Вы можете описать любое окно или элемент управления приблизительно или более подробно, даже если он еще не существует или уже закрыт. Спецификация окна также содержит информацию об алгоритме сопоставления/поиска, который будет использоваться для получения реального окна или элемента управления.</p>
+<p>Давайте создадим подробную спецификацию окна:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dlg_spec</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&#39;Untitled - Notepad&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dlg_spec</span>
+<span class="go">&lt;pywinauto.application.WindowSpecification object at 0x0568B790&gt;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dlg_spec</span><span class="o">.</span><span class="n">wrapper_object</span><span class="p">()</span>
+<span class="go">&lt;pywinauto.controls.win32_controls.DialogWrapper object at 0x05639B70&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Фактический поиск окна выполняется методом <code class="docutils literal"><span class="pre">wrapper_object()</span></code>. Он возвращает некоторую оболочку для реально существующего окна/элемента управления или вызывает <code class="docutils literal"><span class="pre">ElementNotFoundError</span></code>. Эта оболочка может работать с окном/элементом управления, отправляя действия или получая данные.</p>
+<p>Но Python может скрыть этот вызов &#8220;wrapper_object()&#8221;, чтобы у вас был более компактный код в производстве. Следующие утверждения делают абсолютно то же самое:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">dlg_spec</span><span class="o">.</span><span class="n">wrapper_object</span><span class="p">()</span><span class="o">.</span><span class="n">minimize</span><span class="p">()</span> <span class="c"># во время отладки</span>
+<span class="n">dlg_spec</span><span class="o">.</span><span class="n">minimize</span><span class="p">()</span> <span class="c"># в производстве</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Существует множество возможных критериев для создания спецификаций окон. Это лишь несколько примеров.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="c"># может быть многоуровневым</span>
+<span class="n">app</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">title_re</span><span class="o">=</span><span class="s">&#39;.* - Notepad$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">class_name</span><span class="o">=</span><span class="s">&#39;Edit&#39;</span><span class="p">)</span>
+
+<span class="c"># можно комбинировать критерии</span>
+<span class="n">dlg</span> <span class="o">=</span> <span class="n">Desktop</span><span class="p">(</span><span class="n">backend</span><span class="o">=</span><span class="s">&quot;uia&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Calculator</span>
+<span class="n">dlg</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">auto_id</span><span class="o">=</span><span class="s">&#39;num8Button&#39;</span><span class="p">,</span> <span class="n">control_type</span><span class="o">=</span><span class="s">&#39;Button&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Список возможных критериев можно найти в разделе
+<a class="reference internal" href="code/pywinauto.findwindows.html#pywinauto.findwindows.find_elements" title="pywinauto.findwindows.find_elements"><code class="xref py py-func docutils literal"><span class="pre">pywinauto.findwindows.find_elements()</span></code></a> function.</p>
+</div>
+<div class="section" id="attribute-resolution-magic">
+<h2>Attribute Resolution Magic<a class="headerlink" href="#attribute-resolution-magic" title="Permalink to this headline">¶</a></h2>
+<p>Python упрощает создание спецификации окна, динамически разрешая атрибуты объекта. Но имя атрибута имеет те же ограничения, что и любое имя переменной:
+ни каких пробелов, запятых и других специальных символов. Но, к счастью, pywinauto использует алгоритм &#8220;лучшего соответствия&#8221;, чтобы сделать поиск устойчивым к опечаткам и небольшим вариациям.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">UntitledNotepad</span>
+<span class="c"># эквивалентно</span>
+<span class="n">app</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">best_match</span><span class="o">=</span><span class="s">&#39;UntitledNotepad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Использование символов Юникода и специальных символов возможно посредством доступа к элементам в словаре.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="p">[</span><span class="s">&#39;Untitled - Notepad&#39;</span><span class="p">]</span>
+<span class="c"># такой же как</span>
+<span class="n">app</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">best_match</span><span class="o">=</span><span class="s">&#39;Untitled - Notepad&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>Как узнать имена магических атрибутов<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Есть несколько принципов, &#8220;best_match&#8221; на основе которых имена прикреплены к элементам управления. Поэтому, если спецификация окна близка к одному из этих имен, у вас будет успешное сопоставление.</p>
+<ol class="arabic simple">
+<li>По названию (window text, name): <code class="docutils literal"><span class="pre">app.Properties.OK.click()</span></code></li>
+<li>По названию и типу управления : <code class="docutils literal"><span class="pre">app.Properties.OKButton.click()</span></code></li>
+<li>По типу и номеру элемента управления: <code class="docutils literal"><span class="pre">app.Properties.Button3.click()</span></code>
+(<em>Замечание</em>: Button0 и Button1 соответствуют одной и той же кнопке, Button2-следующая и т.д.)</li>
+<li>По top-left label и типу управления: <code class="docutils literal"><span class="pre">app.OpenDialog.FileNameEdit.set_text(&quot;&quot;)</span></code></li>
+<li>По типу элемента управления и тексту элемента: <code class="docutils literal"><span class="pre">app.Properties.TabControlSharing.select(&quot;General&quot;)</span></code></li>
+</ol>
+<p>Часто не все из этих соответствующих имен доступны одновременно. Что бы проверить эти имена для указанного диалогового окна можно использовать метод &#8220;print_control_identifiers()&#8221;. Возможные имена &#8220;best_match&#8221; отображаются в виде списка Python для каждого элемента управления в дереве. Более подробную спецификацию окна можно также просто скопировать из вывода метода. Вызвать
+<code class="docutils literal"><span class="pre">app.Properties.child_window(title=&quot;Contains:&quot;,</span> <span class="pre">auto_id=&quot;13087&quot;,</span> <span class="pre">control_type=&quot;Edit&quot;)</span></code>.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">Properties</span><span class="o">.</span><span class="n">print_control_identifiers</span><span class="p">()</span>
+
+<span class="go">Control Identifiers:</span>
+
+<span class="go">Dialog - &#39;Windows NT Properties&#39;    (L688, T518, R1065, B1006)</span>
+<span class="go">[u&#39;Windows NT PropertiesDialog&#39;, u&#39;Dialog&#39;, u&#39;Windows NT Properties&#39;]</span>
+<span class="go">child_window(title=&quot;Windows NT Properties&quot;, control_type=&quot;Window&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Image - &#39;&#39;    (L717, T589, R749, B622)</span>
+<span class="go">   | [u&#39;&#39;, u&#39;0&#39;, u&#39;Image1&#39;, u&#39;Image0&#39;, &#39;Image&#39;, u&#39;1&#39;]</span>
+<span class="go">   | child_window(auto_id=&quot;13057&quot;, control_type=&quot;Image&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Image - &#39;&#39;    (L717, T630, R1035, B632)</span>
+<span class="go">   | [&#39;Image2&#39;, u&#39;2&#39;]</span>
+<span class="go">   | child_window(auto_id=&quot;13095&quot;, control_type=&quot;Image&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Folder name:&#39;    (L790, T596, R1036, B619)</span>
+<span class="go">   | [u&#39;3&#39;, &#39;Edit&#39;, u&#39;Edit1&#39;, u&#39;Edit0&#39;]</span>
+<span class="go">   | child_window(title=&quot;Folder name:&quot;, auto_id=&quot;13156&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Type:&#39;    (L717, T643, R780, B658)</span>
+<span class="go">   | [u&#39;Type:Static&#39;, u&#39;Static&#39;, u&#39;Static1&#39;, u&#39;Static0&#39;, u&#39;Type:&#39;]</span>
+<span class="go">   | child_window(title=&quot;Type:&quot;, auto_id=&quot;13080&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Type:&#39;    (L790, T643, R1036, B666)</span>
+<span class="go">   | [u&#39;4&#39;, &#39;Edit2&#39;, u&#39;Type:Edit&#39;]</span>
+<span class="go">   | child_window(title=&quot;Type:&quot;, auto_id=&quot;13059&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Location:&#39;    (L717, T669, R780, B684)</span>
+<span class="go">   | [u&#39;Location:Static&#39;, u&#39;Location:&#39;, u&#39;Static2&#39;]</span>
+<span class="go">   | child_window(title=&quot;Location:&quot;, auto_id=&quot;13089&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Location:&#39;    (L790, T669, R1036, B692)</span>
+<span class="go">   | [&#39;Edit3&#39;, u&#39;Location:Edit&#39;, u&#39;5&#39;]</span>
+<span class="go">   | child_window(title=&quot;Location:&quot;, auto_id=&quot;13065&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Size:&#39;    (L717, T695, R780, B710)</span>
+<span class="go">   | [u&#39;Size:Static&#39;, u&#39;Size:&#39;, u&#39;Static3&#39;]</span>
+<span class="go">   | child_window(title=&quot;Size:&quot;, auto_id=&quot;13081&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Size:&#39;    (L790, T695, R1036, B718)</span>
+<span class="go">   | [&#39;Edit4&#39;, u&#39;6&#39;, u&#39;Size:Edit&#39;]</span>
+<span class="go">   | child_window(title=&quot;Size:&quot;, auto_id=&quot;13064&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Size on disk:&#39;    (L717, T721, R780, B736)</span>
+<span class="go">   | [u&#39;Size on disk:&#39;, u&#39;Size on disk:Static&#39;, u&#39;Static4&#39;]</span>
+<span class="go">   | child_window(title=&quot;Size on disk:&quot;, auto_id=&quot;13107&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Size on disk:&#39;    (L790, T721, R1036, B744)</span>
+<span class="go">   | [&#39;Edit5&#39;, u&#39;7&#39;, u&#39;Size on disk:Edit&#39;]</span>
+<span class="go">   | child_window(title=&quot;Size on disk:&quot;, auto_id=&quot;13106&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Contains:&#39;    (L717, T747, R780, B762)</span>
+<span class="go">   | [u&#39;Contains:1&#39;, u&#39;Contains:0&#39;, u&#39;Contains:Static&#39;, u&#39;Static5&#39;, u&#39;Contains:&#39;]</span>
+<span class="go">   | child_window(title=&quot;Contains:&quot;, auto_id=&quot;13088&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Contains:&#39;    (L790, T747, R1036, B770)</span>
+<span class="go">   | [u&#39;8&#39;, &#39;Edit6&#39;, u&#39;Contains:Edit&#39;]</span>
+<span class="go">   | child_window(title=&quot;Contains:&quot;, auto_id=&quot;13087&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Image - &#39;Contains:&#39;    (L717, T773, R1035, B775)</span>
+<span class="go">   | [u&#39;Contains:Image&#39;, &#39;Image3&#39;, u&#39;Contains:2&#39;]</span>
+<span class="go">   | child_window(title=&quot;Contains:&quot;, auto_id=&quot;13096&quot;, control_type=&quot;Image&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Created:&#39;    (L717, T786, R780, B801)</span>
+<span class="go">   | [u&#39;Created:&#39;, u&#39;Created:Static&#39;, u&#39;Static6&#39;, u&#39;Created:1&#39;, u&#39;Created:0&#39;]</span>
+<span class="go">   | child_window(title=&quot;Created:&quot;, auto_id=&quot;13092&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Edit - &#39;Created:&#39;    (L790, T786, R1036, B809)</span>
+<span class="go">   | [u&#39;Created:Edit&#39;, &#39;Edit7&#39;, u&#39;9&#39;]</span>
+<span class="go">   | child_window(title=&quot;Created:&quot;, auto_id=&quot;13072&quot;, control_type=&quot;Edit&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Image - &#39;Created:&#39;    (L717, T812, R1035, B814)</span>
+<span class="go">   | [u&#39;Created:Image&#39;, &#39;Image4&#39;, u&#39;Created:2&#39;]</span>
+<span class="go">   | child_window(title=&quot;Created:&quot;, auto_id=&quot;13097&quot;, control_type=&quot;Image&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Static - &#39;Attributes:&#39;    (L717, T825, R780, B840)</span>
+<span class="go">   | [u&#39;Attributes:Static&#39;, u&#39;Static7&#39;, u&#39;Attributes:&#39;]</span>
+<span class="go">   | child_window(title=&quot;Attributes:&quot;, auto_id=&quot;13091&quot;, control_type=&quot;Text&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | CheckBox - &#39;Read-only (Only applies to files in folder)&#39;    (L790, T825, R1035, B841)</span>
+<span class="go">   | [u&#39;CheckBox0&#39;, u&#39;CheckBox1&#39;, &#39;CheckBox&#39;, u&#39;Read-only (Only applies to files in folder)CheckBox&#39;, u&#39;Read-only (Only applies to files in folder)&#39;]</span>
+<span class="go">   | child_window(title=&quot;Read-only (Only applies to files in folder)&quot;, auto_id=&quot;13075&quot;, control_type=&quot;CheckBox&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | CheckBox - &#39;Hidden&#39;    (L790, T848, R865, B864)</span>
+<span class="go">   | [&#39;CheckBox2&#39;, u&#39;HiddenCheckBox&#39;, u&#39;Hidden&#39;]</span>
+<span class="go">   | child_window(title=&quot;Hidden&quot;, auto_id=&quot;13076&quot;, control_type=&quot;CheckBox&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Button - &#39;Advanced...&#39;    (L930, T845, R1035, B868)</span>
+<span class="go">   | [u&#39;Advanced...&#39;, u&#39;Advanced...Button&#39;, &#39;Button&#39;, u&#39;Button1&#39;, u&#39;Button0&#39;]</span>
+<span class="go">   | child_window(title=&quot;Advanced...&quot;, auto_id=&quot;13154&quot;, control_type=&quot;Button&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Button - &#39;OK&#39;    (L814, T968, R889, B991)</span>
+<span class="go">   | [&#39;Button2&#39;, u&#39;OK&#39;, u&#39;OKButton&#39;]</span>
+<span class="go">   | child_window(title=&quot;OK&quot;, auto_id=&quot;1&quot;, control_type=&quot;Button&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Button - &#39;Cancel&#39;    (L895, T968, R970, B991)</span>
+<span class="go">   | [&#39;Button3&#39;, u&#39;CancelButton&#39;, u&#39;Cancel&#39;]</span>
+<span class="go">   | child_window(title=&quot;Cancel&quot;, auto_id=&quot;2&quot;, control_type=&quot;Button&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | Button - &#39;Apply&#39;    (L976, T968, R1051, B991)</span>
+<span class="go">   | [&#39;Button4&#39;, u&#39;ApplyButton&#39;, u&#39;Apply&#39;]</span>
+<span class="go">   | child_window(title=&quot;Apply&quot;, auto_id=&quot;12321&quot;, control_type=&quot;Button&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | TabControl - &#39;&#39;    (L702, T556, R1051, B962)</span>
+<span class="go">   | [u&#39;10&#39;, u&#39;TabControlSharing&#39;, u&#39;TabControlPrevious Versions&#39;, u&#39;TabControlSecurity&#39;, u&#39;TabControl&#39;, u&#39;TabControlCustomize&#39;]</span>
+<span class="go">   | child_window(auto_id=&quot;12320&quot;, control_type=&quot;Tab&quot;)</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | TabItem - &#39;General&#39;    (L704, T558, R753, B576)</span>
+<span class="go">   |    | [u&#39;GeneralTabItem&#39;, &#39;TabItem&#39;, u&#39;General&#39;, u&#39;TabItem0&#39;, u&#39;TabItem1&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;General&quot;, control_type=&quot;TabItem&quot;)</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | TabItem - &#39;Sharing&#39;    (L753, T558, R801, B576)</span>
+<span class="go">   |    | [u&#39;Sharing&#39;, u&#39;SharingTabItem&#39;, &#39;TabItem2&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;Sharing&quot;, control_type=&quot;TabItem&quot;)</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | TabItem - &#39;Security&#39;    (L801, T558, R851, B576)</span>
+<span class="go">   |    | [u&#39;Security&#39;, &#39;TabItem3&#39;, u&#39;SecurityTabItem&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;Security&quot;, control_type=&quot;TabItem&quot;)</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | TabItem - &#39;Previous Versions&#39;    (L851, T558, R947, B576)</span>
+<span class="go">   |    | [u&#39;Previous VersionsTabItem&#39;, u&#39;Previous Versions&#39;, &#39;TabItem4&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;Previous Versions&quot;, control_type=&quot;TabItem&quot;)</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | TabItem - &#39;Customize&#39;    (L947, T558, R1007, B576)</span>
+<span class="go">   |    | [u&#39;CustomizeTabItem&#39;, &#39;TabItem5&#39;, u&#39;Customize&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;Customize&quot;, control_type=&quot;TabItem&quot;)</span>
+<span class="go">   |</span>
+<span class="go">   | TitleBar - &#39;None&#39;    (L712, T521, R1057, B549)</span>
+<span class="go">   | [&#39;TitleBar&#39;, u&#39;11&#39;]</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | Menu - &#39;System&#39;    (L696, T526, R718, B548)</span>
+<span class="go">   |    | [u&#39;System0&#39;, u&#39;System&#39;, u&#39;System1&#39;, u&#39;Menu&#39;, u&#39;SystemMenu&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;System&quot;, auto_id=&quot;MenuBar&quot;, control_type=&quot;MenuBar&quot;)</span>
+<span class="go">   |    |    |</span>
+<span class="go">   |    |    | MenuItem - &#39;System&#39;    (L696, T526, R718, B548)</span>
+<span class="go">   |    |    | [u&#39;System2&#39;, u&#39;MenuItem&#39;, u&#39;SystemMenuItem&#39;]</span>
+<span class="go">   |    |    | child_window(title=&quot;System&quot;, control_type=&quot;MenuItem&quot;)</span>
+<span class="go">   |    |</span>
+<span class="go">   |    | Button - &#39;Close&#39;    (L1024, T519, R1058, B549)</span>
+<span class="go">   |    | [u&#39;CloseButton&#39;, u&#39;Close&#39;, &#39;Button5&#39;]</span>
+<span class="go">   |    | child_window(title=&quot;Close&quot;, control_type=&quot;Button&quot;)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>Посмотрите на примеры<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Ниже приводятся следующие примеры:
+<strong>Примечание</strong>: Примеры зависят от языка - они будут работать только на языке продукта, для которого они были запрограммированы. Все примеры были запрограммированы для английского программного обеспечения, за исключением выделенных.</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">mspaint.py</span></code>         Управление MSPaint</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">notepad_fast.py</span></code>    Использует быстрые настройки времени для управления блокнотом</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">notepad_slow.py</span></code>    Использует медленные настройки времени для управления блокнотом</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">notepad_item.py</span></code>    Использует элемент, а не атрибут доступа для управления блокнотом.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">misc_examples.py</span></code>    Демонстрирует некоторые исключения и как получить идентификаторы управления.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">save_from_internet_explorer.py</span></code> Сохраняет веб-страницу из Internet Explorer.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">save_from_firefox.py</span></code>  Save a Web Page from Firefox.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">get_winrar_info.py</span></code>    Пример того, как сделать многоязычную автоматизацию.
+Это не идеальный пример (работает на французском, чешском и немецком WinRar)</p>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">forte_agent_sample.py</span></code>   Пример работы со сложным приложением, которое довольно динамично</dt>
+<dd><p class="first last">и часто создает разные диалоги при запуске.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">windowmediaplayer.py</span></code>  Просто еще один пример - работы с чекбоксами в
+ListView.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">test_sakura.py</span></code>, <code class="docutils literal"><span class="pre">test_sakura2.py</span></code>    Два примера автоматизации японского продукта.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>Автоматизация блокнота в командной строке<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Ниже представлен образец работы</p>
+<div class="highlight-python"><div class="highlight"><pre>      C:\&gt;python
+      Python 2.4.2 (#67, Sep 28 2005, 12:41:11) [MSC v.1310 32 bit (Intel)] on win32
+      Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+(1)   &gt;&gt;&gt; from pywinauto import application
+(2)   &gt;&gt;&gt; app = application.Application()
+(3)   &gt;&gt;&gt; app.start(&quot;Notepad.exe&quot;)
+      &lt;pywinauto.application.Application object at 0x00AE0990&gt;
+(4)   &gt;&gt;&gt; app.UntitledNotepad.draw_outline()
+(5)   &gt;&gt;&gt; app.UntitledNotepad.menu_select(&quot;Edit -&gt; Replace&quot;)
+(6)   &gt;&gt;&gt; app.Replace.print_control_identifiers()
+        Control Identifiers:
+
+        Dialog - &#39;Replace&#39;    (L179, T174, R657, B409)
+        [&#39;ReplaceDialog&#39;, &#39;Dialog&#39;, &#39;Replace&#39;]
+        child_window(title=&quot;Replace&quot;, class_name=&quot;#32770&quot;)
+           |
+           | Static - &#39;Fi&amp;nd what:&#39;    (L196, T230, R292, B246)
+           | [&#39;Fi&amp;nd what:Static&#39;, &#39;Fi&amp;nd what:&#39;, &#39;Static&#39;, &#39;Static0&#39;, &#39;Static1&#39;]
+           | child_window(title=&quot;Fi&amp;nd what:&quot;, class_name=&quot;Static&quot;)
+           |
+           | Edit - &#39;&#39;    (L296, T226, R524, B250)
+           | [&#39;Fi&amp;nd what:Edit&#39;, &#39;Edit&#39;, &#39;Edit0&#39;, &#39;Edit1&#39;]
+           | child_window(class_name=&quot;Edit&quot;)
+           |
+           | Static - &#39;Re&amp;place with:&#39;    (L196, T264, R292, B280)
+           | [&#39;Re&amp;place with:&#39;, &#39;Re&amp;place with:Static&#39;, &#39;Static2&#39;]
+           | child_window(title=&quot;Re&amp;place with:&quot;, class_name=&quot;Static&quot;)
+           |
+           | Edit - &#39;&#39;    (L296, T260, R524, B284)
+           | [&#39;Edit2&#39;, &#39;Re&amp;place with:Edit&#39;]
+           | child_window(class_name=&quot;Edit&quot;)
+           |
+           | CheckBox - &#39;Match &amp;whole word only&#39;    (L198, T304, R406, B328)
+           | [&#39;CheckBox&#39;, &#39;Match &amp;whole word onlyCheckBox&#39;, &#39;Match &amp;whole word only&#39;, &#39;CheckBox0&#39;, &#39;CheckBox1&#39;]
+           | child_window(title=&quot;Match &amp;whole word only&quot;, class_name=&quot;Button&quot;)
+           |
+           | CheckBox - &#39;Match &amp;case&#39;    (L198, T336, R316, B360)
+           | [&#39;CheckBox2&#39;, &#39;Match &amp;case&#39;, &#39;Match &amp;caseCheckBox&#39;]
+           | child_window(title=&quot;Match &amp;case&quot;, class_name=&quot;Button&quot;)
+           |
+           | Button - &#39;&amp;Find Next&#39;    (L536, T220, R636, B248)
+           | [&#39;&amp;Find Next&#39;, &#39;&amp;Find NextButton&#39;, &#39;Button&#39;, &#39;Button0&#39;, &#39;Button1&#39;]
+           | child_window(title=&quot;&amp;Find Next&quot;, class_name=&quot;Button&quot;)
+           |
+           | Button - &#39;&amp;Replace&#39;    (L536, T254, R636, B282)
+           | [&#39;&amp;ReplaceButton&#39;, &#39;&amp;Replace&#39;, &#39;Button2&#39;]
+           | child_window(title=&quot;&amp;Replace&quot;, class_name=&quot;Button&quot;)
+           |
+           | Button - &#39;Replace &amp;All&#39;    (L536, T288, R636, B316)
+           | [&#39;Replace &amp;AllButton&#39;, &#39;Replace &amp;All&#39;, &#39;Button3&#39;]
+           | child_window(title=&quot;Replace &amp;All&quot;, class_name=&quot;Button&quot;)
+           |
+           | Button - &#39;Cancel&#39;    (L536, T322, R636, B350)
+           | [&#39;CancelButton&#39;, &#39;Cancel&#39;, &#39;Button4&#39;]
+           | child_window(title=&quot;Cancel&quot;, class_name=&quot;Button&quot;)
+           |
+           | Button - &#39;&amp;Help&#39;    (L536, T362, R636, B390)
+           | [&#39;&amp;Help&#39;, &#39;&amp;HelpButton&#39;, &#39;Button5&#39;]
+           | child_window(title=&quot;&amp;Help&quot;, class_name=&quot;Button&quot;)
+           |
+           | Static - &#39;&#39;    (L196, T364, R198, B366)
+           | [&#39;ReplaceStatic&#39;, &#39;Static3&#39;]
+           | child_window(class_name=&quot;Static&quot;)
+(7)   &gt;&gt;&gt; app.Replace.Cancel.click()
+(8)   &gt;&gt;&gt; app.UntitledNotepad.Edit.type_keys(&quot;Hi from Python interactive prompt %s&quot; % str(dir()), with_spaces = True)
+      &lt;pywinauto.controls.win32_controls.EditWrapper object at 0x00DDC2D0&gt;
+(9)   &gt;&gt;&gt; app.UntitledNotepad.menu_select(&quot;File -&gt; Exit&quot;)
+(10)  &gt;&gt;&gt; app.Notepad.DontSave.click()
+      &gt;&gt;&gt;
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p class="first">Импортируйте модуль pywinauto.application (обычно единственный модуль, который необходимо импортировать напрямую)</p>
+</li>
+<li><p class="first">Создайте экземпляр приложения. Весь доступ к приложению осуществляется через этот объект.</p>
+</li>
+<li><p class="first">Мы создали экземпляр Application на шаге 2, но не предоставили никакой информации о приложении Windows, на которое оно ссылалось. Используя метод start(), мы запускаем это приложение и подключаем его к Application экземпляра app.</p>
+</li>
+<li><p class="first">Рисуем зеленый прямоугольник вокруг диалогового окна «Блокнот», чтобы мы знали, что у нас правильное окно.</p>
+</li>
+<li><p class="first">Выберите пункт «Replace» в меню «Edit» в диалоговом окне «Notepad» к которому подключено приложение.
+Это действие приведет к появлению диалогового окна Replace.</p>
+</li>
+<li><p class="first">Распечатайте идентификаторы для элементов управления в диалоговом окне «Replace», например, на 1-й элемент управления для редактирования в диалоговом окне «Replace» можно ссылаться с помощью любого из следующих идентификаторов:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">Replace</span><span class="o">.</span><span class="n">Edit</span>
+<span class="n">app</span><span class="o">.</span><span class="n">Replace</span><span class="o">.</span><span class="n">Edit0</span>
+<span class="n">app</span><span class="o">.</span><span class="n">Replace</span><span class="o">.</span><span class="n">Edit1</span>
+<span class="n">app</span><span class="o">.</span><span class="n">FindwhatEdit</span>
+</pre></div>
+</div>
+<p>Последний-это тот, который дает пользователю, читающему сценарий после него, лучшее представление о том, что делает скрипт.</p>
+</li>
+<li><p class="first">Закройте диалог Replace. (В файле сценария безопаснее использовать close_click(), а не click(), потому что close_click() ждет немного дольше, чтобы дать Windows время для закрытия диалога.)</p>
+</li>
+<li><p class="first">Давайте наберем текст в текстовую область Блокнота. Без аргумента &#8220;with_spaces&#8221; пробелы не будут набраны. См. документацию для SendKeys для этого метода, поскольку это тонкая обертка вокруг SendKeys.</p>
+</li>
+<li><p class="first">Попросите выйти из блокнота</p>
+</li>
+<li><p class="first">На вопрос, хотим ли мы сохранить - нажмите кнопку «No».</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Руководство по началу работы</a><ul>
+<li><a class="reference internal" href="#gui-objects-inspection-spy-tools">GUI Objects Inspection / Spy Tools</a></li>
+<li><a class="reference internal" href="#id2">Точки входа для автоматизации</a></li>
+<li><a class="reference internal" href="#window-specification">Window Specification</a></li>
+<li><a class="reference internal" href="#attribute-resolution-magic">Attribute Resolution Magic</a></li>
+<li><a class="reference internal" href="#id3">Как узнать имена магических атрибутов</a></li>
+<li><a class="reference internal" href="#id4">Посмотрите на примеры</a></li>
+<li><a class="reference internal" href="#id5">Автоматизация блокнота в командной строке</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getting_started.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

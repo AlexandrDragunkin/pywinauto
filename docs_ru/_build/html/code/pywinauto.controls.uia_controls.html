@@ -1,0 +1,736 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pywinauto.controls.uia_controls &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="../contents.html" />
+    <link rel="up" title="Basic User Input Modules" href="code.html" />
+    <link rel="next" title="pywinauto.tests.allcontrols" href="pywinauto.tests.allcontrols.html" />
+    <link rel="prev" title="pywinauto.controls.uiawrapper" href="pywinauto.controls.uiawrapper.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.tests.allcontrols.html" title="pywinauto.tests.allcontrols"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.uiawrapper.html" title="pywinauto.controls.uiawrapper"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" accesskey="U">Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinauto-controls-uia-controls">
+<h1>pywinauto.controls.uia_controls<a class="headerlink" href="#pywinauto-controls-uia-controls" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-pywinauto.controls.uia_controls"></span><p>Wrap various UIA windows controls</p>
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.ButtonWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">ButtonWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ButtonWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap a UIA-compatible Button, CheckBox or RadioButton control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ButtonWrapper.click">
+<code class="descname">click</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ButtonWrapper.click" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click the Button control by using Invoke pattern</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ButtonWrapper.get_toggle_state">
+<code class="descname">get_toggle_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ButtonWrapper.get_toggle_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a toggle state of a check box control.</p>
+<p>The toggle state is represented by an integer
+0 - unchecked
+1 - checked
+2 - indeterminate</p>
+<p>The following constants are defined in the uia_defines module
+toggle_state_off = 0
+toggle_state_on = 1
+toggle_state_inderteminate = 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ButtonWrapper.is_dialog">
+<code class="descname">is_dialog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ButtonWrapper.is_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buttons are never dialogs so return False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ButtonWrapper.toggle">
+<code class="descname">toggle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ButtonWrapper.toggle" title="Permalink to this definition">¶</a></dt>
+<dd><p>An interface to Toggle method of the Toggle control pattern.</p>
+<p>Control supporting the Toggle pattern cycles through its
+toggle states in the following order:
+ToggleState_On, ToggleState_Off and,
+if supported, ToggleState_Indeterminate</p>
+<p>Usually applied for the check box control.</p>
+<p>The radio button control does not implement IToggleProvider,
+because it is not capable of cycling through its valid states.
+Toggle a state of a check box control. (Use &#8216;select&#8217; method instead)
+Notice, a radio button control isn&#8217;t supported by UIA.
+<a class="reference external" href="https://msdn.microsoft.com/en-us/library/windows/desktop/ee671290(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ee671290(v=vs.85).aspx</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.ComboBoxWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">ComboBoxWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ComboBoxWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap a UIA CoboBox control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ComboBoxWrapper.item_count">
+<code class="descname">item_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ComboBoxWrapper.item_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of items in the combobox</p>
+<p>The interface is kept mostly for a backward compatibility with
+the native ComboBox interface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ComboBoxWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ComboBoxWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select the ComboBox item</p>
+<p>The item can be either a 0 based index of the item to select
+or it can be the string that you want to select</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ComboBoxWrapper.selected_index">
+<code class="descname">selected_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ComboBoxWrapper.selected_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the selected index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ComboBoxWrapper.selected_text">
+<code class="descname">selected_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ComboBoxWrapper.selected_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the selected text or None</p>
+<p>Notice, that in case of multi-select it will be only the text from
+a first selected item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ComboBoxWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ComboBoxWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text of the items in the combobox</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.EditWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">EditWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Edit control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.get_line">
+<code class="descname">get_line</code><span class="sig-paren">(</span><em>line_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.get_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the line specified</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.get_value">
+<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.get_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current value of the element</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.line_count">
+<code class="descname">line_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.line_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return how many lines there are in the Edit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.line_length">
+<code class="descname">line_length</code><span class="sig-paren">(</span><em>line_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.line_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return how many characters there are in the line</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>start=0</em>, <em>end=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the edit selection of the edit control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.selection_indices">
+<code class="descname">selection_indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.selection_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The start and end indices of the current selection</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.set_edit_text">
+<code class="descname">set_edit_text</code><span class="sig-paren">(</span><em>text</em>, <em>pos_start=None</em>, <em>pos_end=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.set_edit_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the text of the edit control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.set_text">
+<code class="descname">set_text</code><span class="sig-paren">(</span><em>text</em>, <em>pos_start=None</em>, <em>pos_end=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.set_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the text of the edit control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.set_window_text">
+<code class="descname">set_window_text</code><span class="sig-paren">(</span><em>text</em>, <em>append=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.set_window_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override set_window_text for edit controls because it should not be
+used for Edit controls.</p>
+<p>Edit Controls should either use set_edit_text() or type_keys() to modify
+the contents of the edit control.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.text_block">
+<code class="descname">text_block</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.text_block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the text of the edit control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the text of the edit control</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.uia_controls.EditWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.uia_controls.EditWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.HeaderItemWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">HeaderItemWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.HeaderItemWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Header Item control</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.HeaderWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">HeaderWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.HeaderWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Header control</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.ListItemWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">ListItemWrapper</code><span class="sig-paren">(</span><em>elem</em>, <em>container=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListItemWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible ListViewItem control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListItemWrapper.is_checked">
+<code class="descname">is_checked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListItemWrapper.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the ListItem is checked</p>
+<p>Only items supporting Toggle pattern should answer.
+Raise NoPatternInterfaceError if the pattern is not supported</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListItemWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListItemWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of item texts</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">ListViewWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible ListView control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.cell">
+<code class="descname">cell</code><span class="sig-paren">(</span><em>row</em>, <em>column</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a cell in the ListView control</p>
+<p>Only for controls with Grid pattern support</p>
+<ul class="simple">
+<li><strong>row</strong> is an index of a row in the list.</li>
+<li><strong>column</strong> is an index of a column in the specified row.</li>
+</ul>
+<p>The returned cell can be of different control types.
+Mostly: TextBlock, ImageControl, EditControl, DataItem
+or even another layer of data items (Group, DataGrid)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.column_count">
+<code class="descname">column_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.column_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of columns</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.columns">
+<code class="descname">columns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information on the columns of the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.get_column">
+<code class="descname">get_column</code><span class="sig-paren">(</span><em>col_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.get_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information for a column of the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.get_header_control">
+<code class="descname">get_header_control</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.get_header_control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Header control associated with the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.get_item">
+<code class="descname">get_item</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.get_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an item of the ListView control</p>
+<ul class="simple">
+<li><strong>row</strong> can be either an index of the row or a string
+with the text of a cell in the row you want returned.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.get_item_rect">
+<code class="descname">get_item_rect</code><span class="sig-paren">(</span><em>item_index</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.get_item_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bounding rectangle of the list view item</p>
+<p>The method is kept mostly for a backward compatibility
+with the native ListViewWrapper interface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.get_items">
+<code class="descname">get_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all items of the ListView control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.get_selected_count">
+<code class="descname">get_selected_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.get_selected_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a number of selected items</p>
+<p>The call can be quite expensieve as we retrieve all
+the selected items in order to count them</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.item">
+<code class="descname">item</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an item of the ListView control</p>
+<ul class="simple">
+<li><strong>row</strong> can be either an index of the row or a string
+with the text of a cell in the row you want returned.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.item_count">
+<code class="descname">item_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.item_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>A number of items in the ListView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all items of the ListView control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of item texts</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.uia_controls.ListViewWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.uia_controls.ListViewWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.MenuItemWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">MenuItemWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuItemWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible MenuItem control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.MenuItemWrapper.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuItemWrapper.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all items of the menu item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.MenuItemWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuItemWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply Select pattern</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.MenuWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">MenuWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible MenuBar or Menu control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.MenuWrapper.item_by_index">
+<code class="descname">item_by_index</code><span class="sig-paren">(</span><em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuWrapper.item_by_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a menu item specified by the index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.MenuWrapper.item_by_path">
+<code class="descname">item_by_path</code><span class="sig-paren">(</span><em>path</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuWrapper.item_by_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find a menu item specified by the path</p>
+<p>The full path syntax is specified in:
+<a class="reference internal" href="pywinauto.controls.menuwrapper.html#pywinauto.controls.menuwrapper.Menu.get_menu_path" title="pywinauto.controls.menuwrapper.Menu.get_menu_path"><code class="xref py py-meth docutils literal"><span class="pre">controls.menuwrapper.Menu.get_menu_path()</span></code></a></p>
+<p>Note: $ - specifier is not supported</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.MenuWrapper.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.MenuWrapper.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find all menu items</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">SliderWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Slider control</p>
+<dl class="attribute">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.large_change">
+<code class="descname">large_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.large_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a large change of slider&#8217;s thumb</p>
+<p>This change is achieved by pressing PgUp and PgDown keys
+when slider&#8217;s thumb has keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.max_value">
+<code class="descname">max_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.max_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum value of the Slider</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.min_value">
+<code class="descname">min_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.min_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the minimum value of the Slider</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.set_value">
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.set_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set position of slider&#8217;s thumb</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.small_change">
+<code class="descname">small_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.small_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a small change of slider&#8217;s thumb</p>
+<p>This change is achieved by pressing left and right arrows
+when slider&#8217;s thumb has keyboard focus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.SliderWrapper.value">
+<code class="descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.SliderWrapper.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a current position of slider&#8217;s thumb</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.TabControlWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">TabControlWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TabControlWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Tab control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TabControlWrapper.get_selected_tab">
+<code class="descname">get_selected_tab</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TabControlWrapper.get_selected_tab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an index of a selected tab</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TabControlWrapper.select">
+<code class="descname">select</code><span class="sig-paren">(</span><em>item</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TabControlWrapper.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a tab by index or by name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TabControlWrapper.tab_count">
+<code class="descname">tab_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TabControlWrapper.tab_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a number of tabs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TabControlWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TabControlWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tabs texts</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.ToolbarWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">ToolbarWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ToolbarWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible ToolBar control</p>
+<p>The control&#8217;s children usually are: Buttons, SplitButton,
+MenuItems, ThumbControls, TextControls, Separators, CheckBoxes.
+Notice that ToolTip controls are children of the top window and
+not of the toolbar.</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ToolbarWrapper.button">
+<code class="descname">button</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ToolbarWrapper.button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a button by the specified identifier</p>
+<ul class="simple">
+<li><strong>button_identifier</strong> can be either an index of a button or
+a string with the text of the button.</li>
+<li><strong>exact</strong> flag specifies if the exact match for the text look up
+has to be applied.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ToolbarWrapper.button_count">
+<code class="descname">button_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ToolbarWrapper.button_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a number of buttons on the ToolBar</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ToolbarWrapper.check_button">
+<code class="descname">check_button</code><span class="sig-paren">(</span><em>button_identifier</em>, <em>make_checked</em>, <em>exact=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ToolbarWrapper.check_button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find where the button is and toggle it</p>
+<ul class="simple">
+<li><strong>button_identifier</strong> can be either an index of the button or
+a string with the text on the button.</li>
+<li><strong>make_checked</strong> specifies the required toggled state of the button.
+If the button is already in the specified state the state isn&#8217;t changed.</li>
+<li><strong>exact</strong> flag specifies if the exact match for the text look up
+has to be applied</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.ToolbarWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.ToolbarWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return texts of the Toolbar</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.uia_controls.ToolbarWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.uia_controls.ToolbarWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.TooltipWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">TooltipWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TooltipWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Tooltip control</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.TreeItemWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">TreeItemWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeItemWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible TreeItem control</p>
+<p>In addition to the provided methods of the wrapper
+additional inherited methods can be especially helpful:
+select(), extend(), collapse(), is_extended(), is_collapsed(),
+click_input(), rectangle() and many others</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeItemWrapper.ensure_visible">
+<code class="descname">ensure_visible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeItemWrapper.ensure_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure that the TreeView item is visible</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeItemWrapper.get_child">
+<code class="descname">get_child</code><span class="sig-paren">(</span><em>child_spec</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeItemWrapper.get_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the child item of this item</p>
+<p>Accepts either a string or an index.
+If a string is passed then it returns the child item
+with the best match for the string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeItemWrapper.is_checked">
+<code class="descname">is_checked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeItemWrapper.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the TreeItem is checked</p>
+<p>Only items supporting Toggle pattern should answer.
+Raise NoPatternInterfaceError if the pattern is not supported</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeItemWrapper.sub_elements">
+<code class="descname">sub_elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeItemWrapper.sub_elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all visible sub-items of this control</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.controls.uia_controls.TreeViewWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.controls.uia_controls.</code><code class="descname">TreeViewWrapper</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeViewWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pywinauto.controls.uiawrapper.html#pywinauto.controls.uiawrapper.UIAWrapper" title="pywinauto.controls.uiawrapper.UIAWrapper"><code class="xref py py-class docutils literal"><span class="pre">pywinauto.controls.uiawrapper.UIAWrapper</span></code></a></p>
+<p>Wrap an UIA-compatible Tree control</p>
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeViewWrapper.get_item">
+<code class="descname">get_item</code><span class="sig-paren">(</span><em>path</em>, <em>exact=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeViewWrapper.get_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a TreeView item</p>
+<ul class="simple">
+<li><strong>path</strong> a path to the item to return. This can be one of
+the following:<ul>
+<li>A string separated by \ characters. The first character must
+be \. This string is split on the \ characters and each of
+these is used to find the specific child at each level. The
+\ represents the root item - so you don&#8217;t need to specify the
+root itself.</li>
+<li>A list/tuple of strings - The first item should be the root
+element.</li>
+<li>A list/tuple of integers - The first item the index which root
+to select. Indexing always starts from zero: get_item((0, 2, 3))</li>
+</ul>
+</li>
+<li><strong>exact</strong> a flag to request exact match of strings in the path
+or apply a fuzzy logic of best_match thus allowing non-exact
+path specifiers</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeViewWrapper.item_count">
+<code class="descname">item_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeViewWrapper.item_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a number of items in TreeView</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeViewWrapper.print_items">
+<code class="descname">print_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeViewWrapper.print_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print all items with line indents</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.controls.uia_controls.TreeViewWrapper.roots">
+<code class="descname">roots</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeViewWrapper.roots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return root elements of TreeView</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.controls.uia_controls.TreeViewWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.controls.uia_controls.TreeViewWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend default properties list.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinauto.controls.uiawrapper.html"
+                        title="previous chapter">pywinauto.controls.uiawrapper</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinauto.tests.allcontrols.html"
+                        title="next chapter">pywinauto.tests.allcontrols</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/pywinauto.controls.uia_controls.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.tests.allcontrols.html" title="pywinauto.tests.allcontrols"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.uiawrapper.html" title="pywinauto.controls.uiawrapper"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" >Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

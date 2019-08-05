@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pywinauto.keyboard &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="../contents.html" />
+    <link rel="up" title="Basic User Input Modules" href="code.html" />
+    <link rel="next" title="pywinauto.application module" href="pywinauto.application.html" />
+    <link rel="prev" title="pywinauto.mouse" href="pywinauto.mouse.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.application.html" title="pywinauto.application module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.mouse.html" title="pywinauto.mouse"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" accesskey="U">Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinauto-keyboard">
+<h1>pywinauto.keyboard<a class="headerlink" href="#pywinauto-keyboard" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-pywinauto.keyboard"></span><p>Keyboard input emulation module</p>
+<p>Automate typing keys to an active window by calling <code class="docutils literal"><span class="pre">SendKeys</span></code> method.
+You can use any Unicode characters (on Windows) and some special keys listed
+below. The module is also available on Linux.</p>
+<p><strong>Available key codes:</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="n">SCROLLLOCK</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_SPACE</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_LSHIFT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_PAUSE</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_MODECHANGE</span><span class="p">},</span>
+<span class="p">{</span><span class="n">BACK</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_HOME</span><span class="p">},</span> <span class="p">{</span><span class="n">F23</span><span class="p">},</span> <span class="p">{</span><span class="n">F22</span><span class="p">},</span> <span class="p">{</span><span class="n">F21</span><span class="p">},</span> <span class="p">{</span><span class="n">F20</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_HANGEUL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_KANJI</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_RIGHT</span><span class="p">},</span> <span class="p">{</span><span class="n">BS</span><span class="p">},</span> <span class="p">{</span><span class="n">HOME</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F4</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_ACCEPT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F18</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_SNAPSHOT</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_PA1</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NONAME</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_LCONTROL</span><span class="p">},</span> <span class="p">{</span><span class="n">ZOOM</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_ATTN</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F10</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F22</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_F23</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F20</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F21</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_SCROLL</span><span class="p">},</span> <span class="p">{</span><span class="n">TAB</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F11</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_END</span><span class="p">},</span>
+<span class="p">{</span><span class="n">LEFT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_UP</span><span class="p">},</span> <span class="p">{</span><span class="n">NUMLOCK</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_APPS</span><span class="p">},</span> <span class="p">{</span><span class="n">PGUP</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F8</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_CONTROL</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_LEFT</span><span class="p">},</span> <span class="p">{</span><span class="n">PRTSC</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD4</span><span class="p">},</span> <span class="p">{</span><span class="n">CAPSLOCK</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_CONVERT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_PROCESSKEY</span><span class="p">},</span>
+<span class="p">{</span><span class="n">ENTER</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_SEPARATOR</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_RWIN</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_LMENU</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NEXT</span><span class="p">},</span> <span class="p">{</span><span class="n">F1</span><span class="p">},</span> <span class="p">{</span><span class="n">F2</span><span class="p">},</span>
+<span class="p">{</span><span class="n">F3</span><span class="p">},</span> <span class="p">{</span><span class="n">F4</span><span class="p">},</span> <span class="p">{</span><span class="n">F5</span><span class="p">},</span> <span class="p">{</span><span class="n">F6</span><span class="p">},</span> <span class="p">{</span><span class="n">F7</span><span class="p">},</span> <span class="p">{</span><span class="n">F8</span><span class="p">},</span> <span class="p">{</span><span class="n">F9</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_ADD</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_RCONTROL</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_RETURN</span><span class="p">},</span> <span class="p">{</span><span class="n">BREAK</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD9</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD8</span><span class="p">},</span> <span class="p">{</span><span class="n">RWIN</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_KANA</span><span class="p">},</span>
+<span class="p">{</span><span class="n">PGDN</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD3</span><span class="p">},</span> <span class="p">{</span><span class="n">DEL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD1</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD0</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD7</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_NUMPAD6</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NUMPAD5</span><span class="p">},</span> <span class="p">{</span><span class="n">DELETE</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_PRIOR</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_SUBTRACT</span><span class="p">},</span> <span class="p">{</span><span class="n">HELP</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_PRINT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_BACK</span><span class="p">},</span> <span class="p">{</span><span class="n">CAP</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_RBUTTON</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_RSHIFT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_LWIN</span><span class="p">},</span> <span class="p">{</span><span class="n">DOWN</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_HELP</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_NONCONVERT</span><span class="p">},</span> <span class="p">{</span><span class="n">BACKSPACE</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_SELECT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_TAB</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_HANJA</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_NUMPAD2</span><span class="p">},</span> <span class="p">{</span><span class="n">INSERT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F9</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_DECIMAL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_FINAL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_EXSEL</span><span class="p">},</span>
+<span class="p">{</span><span class="n">RMENU</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F3</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F2</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F1</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F7</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F6</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F5</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_CRSEL</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_SHIFT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_EREOF</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_CANCEL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_DELETE</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_HANGUL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_MBUTTON</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_NUMLOCK</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_CLEAR</span><span class="p">},</span> <span class="p">{</span><span class="n">END</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_MENU</span><span class="p">},</span> <span class="p">{</span><span class="n">SPACE</span><span class="p">},</span> <span class="p">{</span><span class="n">BKSP</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_INSERT</span><span class="p">},</span>
+<span class="p">{</span><span class="n">F18</span><span class="p">},</span> <span class="p">{</span><span class="n">F19</span><span class="p">},</span> <span class="p">{</span><span class="n">ESC</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_MULTIPLY</span><span class="p">},</span> <span class="p">{</span><span class="n">F12</span><span class="p">},</span> <span class="p">{</span><span class="n">F13</span><span class="p">},</span> <span class="p">{</span><span class="n">F10</span><span class="p">},</span> <span class="p">{</span><span class="n">F11</span><span class="p">},</span> <span class="p">{</span><span class="n">F16</span><span class="p">},</span>
+<span class="p">{</span><span class="n">F17</span><span class="p">},</span> <span class="p">{</span><span class="n">F14</span><span class="p">},</span> <span class="p">{</span><span class="n">F15</span><span class="p">},</span> <span class="p">{</span><span class="n">F24</span><span class="p">},</span> <span class="p">{</span><span class="n">RIGHT</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F24</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_CAPITAL</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_LBUTTON</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_OEM_CLEAR</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_ESCAPE</span><span class="p">},</span> <span class="p">{</span><span class="n">UP</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_DIVIDE</span><span class="p">},</span> <span class="p">{</span><span class="n">INS</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_JUNJA</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_F19</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_EXECUTE</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_PLAY</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_RMENU</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F13</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F12</span><span class="p">},</span> <span class="p">{</span><span class="n">LWIN</span><span class="p">},</span>
+<span class="p">{</span><span class="n">VK_DOWN</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F17</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F16</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F15</span><span class="p">},</span> <span class="p">{</span><span class="n">VK_F14</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Modifiers:</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'+':</span> <span class="pre">{VK_SHIFT}</span></code></li>
+<li><code class="docutils literal"><span class="pre">'^':</span> <span class="pre">{VK_CONTROL}</span></code></li>
+<li><code class="docutils literal"><span class="pre">'%':</span> <span class="pre">{VK_MENU}</span></code> a.k.a. Alt key</li>
+</ul>
+<p>Example how to use modifiers:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">SendKeys</span><span class="p">(</span><span class="s">&#39;^a^c&#39;</span><span class="p">)</span> <span class="c"># select all (Ctrl+A) and copy to clipboard (Ctrl+C)</span>
+<span class="n">SendKeys</span><span class="p">(</span><span class="s">&#39;+{INS}&#39;</span><span class="p">)</span> <span class="c"># insert from clipboard (Shift+Ins)</span>
+<span class="n">SendKeys</span><span class="p">(</span><span class="s">&#39;%{F4}&#39;</span><span class="p">)</span> <span class="c"># close an active window with Alt+F4</span>
+</pre></div>
+</div>
+<p>Repetition count can be specified for special keys. <code class="docutils literal"><span class="pre">{ENTER</span> <span class="pre">2}</span></code> says to
+press Enter twice.</p>
+<dl class="exception">
+<dt id="pywinauto.keyboard.KeySequenceError">
+<em class="property">exception </em><code class="descclassname">pywinauto.keyboard.</code><code class="descname">KeySequenceError</code><a class="headerlink" href="#pywinauto.keyboard.KeySequenceError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception raised when a key sequence string has a syntax error</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pywinauto.keyboard.SendKeys">
+<code class="descclassname">pywinauto.keyboard.</code><code class="descname">SendKeys</code><span class="sig-paren">(</span><em>keys</em>, <em>pause=0.05</em>, <em>with_spaces=False</em>, <em>with_tabs=False</em>, <em>with_newlines=False</em>, <em>turn_off_numlock=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.keyboard.SendKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the keys and type them</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinauto.mouse.html"
+                        title="previous chapter">pywinauto.mouse</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinauto.application.html"
+                        title="next chapter">pywinauto.application module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/pywinauto.keyboard.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.application.html" title="pywinauto.application module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.mouse.html" title="pywinauto.mouse"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" >Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

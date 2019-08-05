@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pywinauto.base_wrapper &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="../contents.html" />
+    <link rel="up" title="Basic User Input Modules" href="code.html" />
+    <link rel="next" title="pywinauto.controls.hwndwrapper" href="pywinauto.controls.hwndwrapper.html" />
+    <link rel="prev" title="pywinauto.win32_hooks" href="pywinauto.win32_hooks.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.hwndwrapper.html" title="pywinauto.controls.hwndwrapper"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.win32_hooks.html" title="pywinauto.win32_hooks"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" accesskey="U">Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinauto-base-wrapper">
+<h1>pywinauto.base_wrapper<a class="headerlink" href="#pywinauto-base-wrapper" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-pywinauto.base_wrapper"></span><p>Base class for all wrappers in all backends</p>
+<dl class="class">
+<dt id="pywinauto.base_wrapper.BaseMeta">
+<em class="property">class </em><code class="descclassname">pywinauto.base_wrapper.</code><code class="descname">BaseMeta</code><a class="headerlink" href="#pywinauto.base_wrapper.BaseMeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract metaclass for Wrapper objects</p>
+<dl class="staticmethod">
+<dt id="pywinauto.base_wrapper.BaseMeta.find_wrapper">
+<em class="property">static </em><code class="descname">find_wrapper</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseMeta.find_wrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract static method to find an appropriate wrapper</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pywinauto.base_wrapper.BaseWrapper">
+<em class="property">class </em><code class="descclassname">pywinauto.base_wrapper.</code><code class="descname">BaseWrapper</code><span class="sig-paren">(</span><em>element_info</em>, <em>active_backend</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract wrapper for elements.</p>
+<p>All other wrappers are derived from this.</p>
+<dl class="attribute">
+<dt id="pywinauto.base_wrapper.BaseWrapper.can_be_label">
+<code class="descname">can_be_label</code><em class="property"> = False</em><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.can_be_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.capture_as_image">
+<code class="descname">capture_as_image</code><span class="sig-paren">(</span><em>rect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.capture_as_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a PIL image of the control.</p>
+<p>See PIL documentation to know what you can do with the resulting
+image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.children">
+<code class="descname">children</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the children of this element as a list</p>
+<p>It returns a list of BaseWrapper (or subclass) instances.
+An empty list is returned if there are no children.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.class_name">
+<code class="descname">class_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the class name of the elenemt</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.click_input">
+<code class="descname">click_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>coords=(None</em>, <em>None)</em>, <em>button_down=True</em>, <em>button_up=True</em>, <em>double=False</em>, <em>wheel_dist=0</em>, <em>use_log=True</em>, <em>pressed=''</em>, <em>absolute=False</em>, <em>key_down=True</em>, <em>key_up=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click at the specified coordinates</p>
+<ul class="simple">
+<li><strong>button</strong> The mouse button to click. One of &#8216;left&#8217;, &#8216;right&#8217;,
+&#8216;middle&#8217; or &#8216;x&#8217; (Default: &#8216;left&#8217;, &#8216;move&#8217; is a special case)</li>
+<li><strong>coords</strong> The coordinates to click at.(Default: the center of the control)</li>
+<li><strong>double</strong> Whether to perform a double click or not (Default: False)</li>
+<li><strong>wheel_dist</strong> The distance to move the mouse wheel (default: 0)</li>
+</ul>
+<dl class="docutils">
+<dt>NOTES:</dt>
+<dd><p class="first">This is different from click method in that it requires the control
+to be visible on the screen but performs a more realistic &#8216;click&#8217;
+simulation.</p>
+<p class="last">This method is also vulnerable if the mouse is moved by the user
+as that could easily move the mouse off the control before the
+click_input has finished.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.client_to_screen">
+<code class="descname">client_to_screen</code><span class="sig-paren">(</span><em>client_point</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.client_to_screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maps point from client to screen coordinates</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.control_count">
+<code class="descname">control_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.control_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of children of this control</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.control_id">
+<code class="descname">control_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.control_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the element</p>
+<p>Only controls have a valid ID - dialogs usually have no ID assigned.</p>
+<p>The ID usually identified the control in the window - but there can
+be duplicate ID&#8217;s for example lables in a dialog may have duplicate
+ID&#8217;s.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.descendants">
+<code class="descname">descendants</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.descendants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the descendants of this element as a list</p>
+<p>It returns a list of BaseWrapper (or subclass) instances.
+An empty list is returned if there are no descendants.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.double_click_input">
+<code class="descname">double_click_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>coords=(None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.double_click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Double click at the specified coordinates</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.drag_mouse_input">
+<code class="descname">drag_mouse_input</code><span class="sig-paren">(</span><em>dst=(0</em>, <em>0)</em>, <em>src=None</em>, <em>button='left'</em>, <em>pressed=''</em>, <em>absolute=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.drag_mouse_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Click on <strong>src</strong>, drag it and drop on <strong>dst</strong></p>
+<ul class="simple">
+<li><strong>dst</strong> is a destination wrapper object or just coordinates.</li>
+<li><strong>src</strong> is a source wrapper object or coordinates.
+If <strong>src</strong> is None the self is used as a source object.</li>
+<li><strong>button</strong> is a mouse button to hold during the drag.
+It can be &#8220;left&#8221;, &#8220;right&#8221;, &#8220;middle&#8221; or &#8220;x&#8221;</li>
+<li><strong>pressed</strong> is a key on the keyboard to press during the drag.</li>
+<li><strong>absolute</strong> specifies whether to use absolute coordinates
+for the mouse pointer locations</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.draw_outline">
+<code class="descname">draw_outline</code><span class="sig-paren">(</span><em>colour='green'</em>, <em>thickness=2</em>, <em>fill=&lt;MagicMock name='mock.win32defines.BS_NULL' id='68551664'&gt;</em>, <em>rect=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.draw_outline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw an outline around the window.</p>
+<ul class="simple">
+<li><strong>colour</strong> can be either an integer or one of &#8216;red&#8217;, &#8216;green&#8217;, &#8216;blue&#8217;
+(default &#8216;green&#8217;)</li>
+<li><strong>thickness</strong> thickness of rectangle (default 2)</li>
+<li><strong>fill</strong> how to fill in the rectangle (default BS_NULL)</li>
+<li><strong>rect</strong> the coordinates of the rectangle to draw (defaults to
+the rectangle of the control)</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.base_wrapper.BaseWrapper.element_info">
+<code class="descname">element_info</code><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.element_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read-only property to get <strong>ElementInfo</strong> object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.friendly_class_name">
+<code class="descname">friendly_class_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.friendly_class_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the friendly class name for the control</p>
+<p>This differs from the class of the control in some cases.
+class_name() is the actual &#8216;Registered&#8217; element class of the control
+while friendly_class_name() is hopefully something that will make
+more sense to the user.</p>
+<p>For example Checkboxes are implemented as Buttons - so the class
+of a CheckBox is &#8220;Button&#8221; - but the friendly class is &#8220;CheckBox&#8221;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.base_wrapper.BaseWrapper.friendlyclassname">
+<code class="descname">friendlyclassname</code><em class="property"> = None</em><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.friendlyclassname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.get_properties">
+<code class="descname">get_properties</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.get_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the properties of the control as a dictionary.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.base_wrapper.BaseWrapper.has_title">
+<code class="descname">has_title</code><em class="property"> = True</em><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.has_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.is_child">
+<code class="descname">is_child</code><span class="sig-paren">(</span><em>parent</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.is_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if this element is a child of &#8216;parent&#8217;.</p>
+<p>An element is a child of another element when it is a direct of the
+other element. An element is a direct descendant of a given
+element if the parent element is the the chain of parent elements
+for the child element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.is_dialog">
+<code class="descname">is_dialog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.is_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the control is a top level window</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.is_enabled">
+<code class="descname">is_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.is_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the element is enabled or not</p>
+<p>Checks that both the top level parent (probably dialog) that
+owns this element and the element itself are both enabled.</p>
+<p>If you want to wait for an element to become enabled (or wait
+for it to become disabled) use <code class="docutils literal"><span class="pre">Application.wait('visible')</span></code> or
+<code class="docutils literal"><span class="pre">Application.wait_not('visible')</span></code>.</p>
+<p>If you want to raise an exception immediately if an element is
+not enabled then you can use the BaseWrapper.verify_enabled().
+BaseWrapper.VerifyReady() raises if the window is not both
+visible and enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.is_visible">
+<code class="descname">is_visible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.is_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the element is visible or not</p>
+<p>Checks that both the top level parent (probably dialog) that
+owns this element and the element itself are both visible.</p>
+<p>If you want to wait for an element to become visible (or wait
+for it to become hidden) use <code class="docutils literal"><span class="pre">Application.wait('visible')</span></code> or
+<code class="docutils literal"><span class="pre">Application.wait_not('visible')</span></code>.</p>
+<p>If you want to raise an exception immediately if an element is
+not visible then you can use the BaseWrapper.verify_visible().
+BaseWrapper.verify_actionable() raises if the element is not both
+visible and enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.move_mouse_input">
+<code class="descname">move_mouse_input</code><span class="sig-paren">(</span><em>coords=(0</em>, <em>0)</em>, <em>pressed=''</em>, <em>absolute=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.move_mouse_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the mouse</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.parent">
+<code class="descname">parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the parent of this element</p>
+<p>Note that the parent of a control is not necesarily a dialog or
+other main window. A group box may be the parent of some radio
+buttons for example.</p>
+<p>To get the main (or top level) window then use
+BaseWrapper.top_level_parent().</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.press_mouse_input">
+<code class="descname">press_mouse_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>coords=(None</em>, <em>None)</em>, <em>pressed=''</em>, <em>absolute=True</em>, <em>key_down=True</em>, <em>key_up=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.press_mouse_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Press a mouse button using SendInput</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.process_id">
+<code class="descname">process_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.process_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of process that owns this window</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.rectangle">
+<code class="descname">rectangle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rectangle of element</p>
+<p>The rectangle() is the rectangle of the element on the screen.
+Coordinates are given from the top left of the screen.</p>
+<p>This method returns a RECT structure, Which has attributes - top,
+left, right, bottom. and has methods width() and height().
+See win32structures.RECT for more information.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.release_mouse_input">
+<code class="descname">release_mouse_input</code><span class="sig-paren">(</span><em>button='left'</em>, <em>coords=(None</em>, <em>None)</em>, <em>pressed=''</em>, <em>absolute=True</em>, <em>key_down=True</em>, <em>key_up=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.release_mouse_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release the mouse button</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.right_click_input">
+<code class="descname">right_click_input</code><span class="sig-paren">(</span><em>coords=(None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.right_click_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Right click at the specified coords</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.root">
+<code class="descname">root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return wrapper for root element (desktop)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.set_focus">
+<code class="descname">set_focus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.set_focus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the focus to this element</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.texts">
+<code class="descname">texts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.texts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text for each item of this control</p>
+<p>It is a list of strings for the control. It is frequently overridden
+to extract all strings from a control with multiple items.</p>
+<p>It is always a list with one or more strings:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The first element is the window text of the control</li>
+<li>Subsequent elements contain the text of any items of the
+control (e.g. items in a listbox/combobox, tabs in a tabcontrol)</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.top_level_parent">
+<code class="descname">top_level_parent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.top_level_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the top level window of this control</p>
+<p>The TopLevel parent is different from the parent in that the parent
+is the element that owns this element - but it may not be a dialog/main
+window. For example most Comboboxes have an Edit. The ComboBox is the
+parent of the Edit control.</p>
+<p>This will always return a valid window element (if the control has
+no top level parent then the control itself is returned - as it is
+a top level window already!)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.type_keys">
+<code class="descname">type_keys</code><span class="sig-paren">(</span><em>keys</em>, <em>pause=None</em>, <em>with_spaces=False</em>, <em>with_tabs=False</em>, <em>with_newlines=False</em>, <em>turn_off_numlock=True</em>, <em>set_foreground=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.type_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type keys to the element using keyboard.SendKeys</p>
+<p>This uses the re-written <a class="reference external" href="pywinauto.keyboard.html">keyboard</a> python module where you can
+find documentation on what to use for the <strong>keys</strong>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.verify_actionable">
+<code class="descname">verify_actionable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.verify_actionable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the element is both visible and enabled</p>
+<p>Raise either ElementNotEnalbed or ElementNotVisible if not
+enabled or visible respectively.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.verify_enabled">
+<code class="descname">verify_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.verify_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the element is enabled</p>
+<p>Check first if the element&#8217;s parent is enabled (skip if no parent),
+then check if element itself is enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.verify_visible">
+<code class="descname">verify_visible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.verify_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the element is visible</p>
+<p>Check first if the element&#8217;s parent is visible. (skip if no parent),
+then check if element itself is visible.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.wait_for_idle">
+<code class="descname">wait_for_idle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.wait_for_idle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Backend specific function to wait for idle state of a thread or a window</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.wheel_mouse_input">
+<code class="descname">wheel_mouse_input</code><span class="sig-paren">(</span><em>coords=(None</em>, <em>None)</em>, <em>wheel_dist=1</em>, <em>pressed=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.wheel_mouse_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do mouse wheel</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pywinauto.base_wrapper.BaseWrapper.window_text">
+<code class="descname">window_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.window_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Window text of the element</p>
+<p>Quite a few contorls have other text that is visible, for example
+Edit controls usually have an empty string for window_text but still
+have text displayed in the edit window.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.base_wrapper.BaseWrapper.windowclasses">
+<code class="descname">windowclasses</code><em class="property"> = []</em><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.windowclasses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pywinauto.base_wrapper.BaseWrapper.writable_props">
+<code class="descname">writable_props</code><a class="headerlink" href="#pywinauto.base_wrapper.BaseWrapper.writable_props" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the list of the default properties to be written.</p>
+<p>Derived classes may override or extend this list depending
+on how much control they need.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinauto.base_wrapper.ElementNotEnabled">
+<em class="property">exception </em><code class="descclassname">pywinauto.base_wrapper.</code><code class="descname">ElementNotEnabled</code><a class="headerlink" href="#pywinauto.base_wrapper.ElementNotEnabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when an element is not enabled</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinauto.base_wrapper.ElementNotVisible">
+<em class="property">exception </em><code class="descclassname">pywinauto.base_wrapper.</code><code class="descname">ElementNotVisible</code><a class="headerlink" href="#pywinauto.base_wrapper.ElementNotVisible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when an element is not visible</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinauto.base_wrapper.InvalidElement">
+<em class="property">exception </em><code class="descclassname">pywinauto.base_wrapper.</code><code class="descname">InvalidElement</code><a class="headerlink" href="#pywinauto.base_wrapper.InvalidElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises when an invalid element is passed</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pywinauto.base_wrapper.remove_non_alphanumeric_symbols">
+<code class="descclassname">pywinauto.base_wrapper.</code><code class="descname">remove_non_alphanumeric_symbols</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.base_wrapper.remove_non_alphanumeric_symbols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make text usable for attribute name</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinauto.win32_hooks.html"
+                        title="previous chapter">pywinauto.win32_hooks</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinauto.controls.hwndwrapper.html"
+                        title="next chapter">pywinauto.controls.hwndwrapper</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/pywinauto.base_wrapper.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controls.hwndwrapper.html" title="pywinauto.controls.hwndwrapper"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.win32_hooks.html" title="pywinauto.win32_hooks"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" >Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

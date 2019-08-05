@@ -1,0 +1,420 @@
+============================
+Руководство по началу работы
+============================
+
+После того, как установили pywinauto - что дальше?
+Самое первое, что необходимо, это определить, какая технология (pywinauto's backend) может быть использована для вашего приложения.
+
+Список поддерживаемых специальных возможностей в Windows:
+
+ * **Win32 API** (``backend="win32"``) - бэкэнд по умолчанию на данный момент
+    - MFC, VB6, VCL, простые элементы управления WinForms и большинство старых унаследованных приложений
+
+ * **MS UI Automation** (``backend="uia"``)
+    - WinForms, WPF, Store apps, Qt5, browsers
+    
+    Примечание: Chrome требует ``--force-renderer-accessibility`` флаг в командной строеке перед запуском. Пользовательские свойства и элементы управления не поддерживаются из-за ограничений библиотеки Python comtypes.
+
+AT SPI для Linux и Apple Accessibility API пока находятся в долгосрочной перспективе.
+
+
+GUI Objects Inspection / Spy Tools
+----------------------------------
+Если вы все еще не уверены, какой движок наиболее подходит для вас, попробуйте использовать object inspection / spy tools из бесплатных:
+download them from GitHub repo gui-inspect-tool_.
+
+.. _gui-inspect-tool: https://github.com/blackrosezy/gui-inspect-tool
+
+ * **Spy++** включен в дистрибутив MS Visual Studio (даже Express или Community) и доступен через меню Start. It uses Win32 API. Это означает, что если Spy++ может показать все элементы управления, то ``"win32"`` - это то, что вам нужно.
+   *AutoIt Window Info* инструмент представляет собой своего рода клон Spy++.
+
+
+ * **Inspect.exe** еще один замечательный инструмент, созданный Microsoft. Он включен в Windows SDK, так что его можно найти в следующем месте в 64-разрядной версии Windows: ::
+
+        C:\Program Files (x86)\Windows Kits\<winver>\bin\x64
+
+
+   Переключите Inspect.exe в режим **UIA** (с помощью MS UI Automation). Если он сможет показать больше элементов управления и их свойств, чем Spy++, вероятно,  ``"uia"`` - ваш выбор.
+
+ * `py_inspect`_ является прототипом multi-backend spy tool на основе Pywinauto. Переключение между доступными бэкэндами сможет показать вам разницу в иерархии с бэкэндами "win32" и "uia". **py_inspect** это будущая замена `SWAPY`_, который поддерживает только "win32" на момент выхода pywinauto==0.5.4. Начальная реализация py_inspect содержит всего около 150 строк кода благодаря современной архитектуре pywinauto 0.6.0+.
+
+.. _`py_inspect`: https://github.com/pywinauto/py_inspect
+.. _`SWAPY`: https://github.com/pywinauto/SWAPY
+
+Если всё же, некоторые или все элементы управления не доступны всем предложенным инструментам контроля, все еще возможно управлять приложением, генерируя события мыши и клавиатуры, используя базовые модули mouse_ и keyboard_.
+
+.. _mouse: code/pywinauto.mouse.html
+.. _keyboard: code/pywinauto.keyboard.html
+
+
+Точки входа для автоматизации
+---------------------------
+
+Итак, у вас есть приложение, вы знаете, что оно поддерживает одну из упомянутых технологий. А что дальше?
+
+Сначала вы должны запустить приложение или подключиться к существующему экземпляру приложения. Это можно сделать с помощью объекта ``Application``. Это не просто клон ``subprocess.Popen``, но точка входа для дальнейшей автоматизации, ограничивающей всю область действия границами процесса. Полезно контролировать несколько экземпляров приложения (вы работаете с одним экземпляром, не беспокоясь о другом).
+
+
+ ::
+
+    from pywinauto.application import Application
+    app = Application(backend="uia").start('notepad.exe')
+    
+    # описать окно внутри процесса Notepad.exe
+    dlg_spec = app.UntitledNotepad
+    # ждать, пока окно действительно станет открыто
+    actionable_dlg = dlg_spec.wait('visible')
+
+Если вы хотите осуществлять навигацию за границам процесса (скажем, Win10 Calculator ловко отображает свои виджеты в нескольких процессах), ваша точка входа-это объект ``Desktop``.
+
+ ::
+
+    from subprocess import Popen
+    from pywinauto import Desktop
+    
+    Popen('calc.exe', shell=True)
+    dlg = Desktop(backend="uia").Calculator
+    dlg.wait('visible')
+
+**Application** и **Desktop** оба объекта бэкэнд-специфичны. Нет необходимости использовать имя бэкэнда явно при дальнейших действиях.
+
+
+Window Specification
+--------------------
+
+Это основная концепция для API pywinauto верхнего уровня. Вы можете описать любое окно или элемент управления приблизительно или более подробно, даже если он еще не существует или уже закрыт. Спецификация окна также содержит информацию об алгоритме сопоставления/поиска, который будет использоваться для получения реального окна или элемента управления.
+
+Давайте создадим подробную спецификацию окна:
+
+ ::
+
+    >>> dlg_spec = app.window(title='Untitled - Notepad')
+    
+    >>> dlg_spec
+    <pywinauto.application.WindowSpecification object at 0x0568B790>
+    
+    >>> dlg_spec.wrapper_object()
+    <pywinauto.controls.win32_controls.DialogWrapper object at 0x05639B70>
+
+Фактический поиск окна выполняется методом ``wrapper_object()``. Он возвращает некоторую оболочку для реально существующего окна/элемента управления или вызывает ``ElementNotFoundError``. Эта оболочка может работать с окном/элементом управления, отправляя действия или получая данные.
+
+Но Python может скрыть этот вызов "wrapper_object()", чтобы у вас был более компактный код в производстве. Следующие утверждения делают абсолютно то же самое:
+
+ ::
+
+    dlg_spec.wrapper_object().minimize() # во время отладки
+    dlg_spec.minimize() # в производстве
+
+Существует множество возможных критериев для создания спецификаций окон. Это лишь несколько примеров.
+
+ ::
+
+    # может быть многоуровневым
+    app.window(title_re='.* - Notepad$').window(class_name='Edit')
+    
+    # можно комбинировать критерии
+    dlg = Desktop(backend="uia").Calculator
+    dlg.window(auto_id='num8Button', control_type='Button')
+
+Список возможных критериев можно найти в разделе
+:func:`pywinauto.findwindows.find_elements()` function.
+
+
+Attribute Resolution Magic
+--------------------------
+
+Python упрощает создание спецификации окна, динамически разрешая атрибуты объекта. Но имя атрибута имеет те же ограничения, что и любое имя переменной:
+ни каких пробелов, запятых и других специальных символов. Но, к счастью, pywinauto использует алгоритм "лучшего соответствия", чтобы сделать поиск устойчивым к опечаткам и небольшим вариациям.
+
+ ::
+
+    app.UntitledNotepad
+    # эквивалентно
+    app.window(best_match='UntitledNotepad')
+
+
+Использование символов Юникода и специальных символов возможно посредством доступа к элементам в словаре.
+
+ ::
+
+    app['Untitled - Notepad']
+    # такой же как
+    app.window(best_match='Untitled - Notepad')
+
+
+Как узнать имена магических атрибутов
+---------------------------------
+
+Есть несколько принципов, "best_match" на основе которых имена прикреплены к элементам управления. Поэтому, если спецификация окна близка к одному из этих имен, у вас будет успешное сопоставление.
+
+1. По названию (window text, name): ``app.Properties.OK.click()``
+2. По названию и типу управления : ``app.Properties.OKButton.click()``
+3. По типу и номеру элемента управления: ``app.Properties.Button3.click()``
+   (*Замечание*: Button0 и Button1 соответствуют одной и той же кнопке, Button2-следующая и т.д.)
+4. По top-left label и типу управления: ``app.OpenDialog.FileNameEdit.set_text("")``
+5. По типу элемента управления и тексту элемента: ``app.Properties.TabControlSharing.select("General")``
+
+Часто не все из этих соответствующих имен доступны одновременно. Что бы проверить эти имена для указанного диалогового окна можно использовать метод "print_control_identifiers()". Возможные имена "best_match" отображаются в виде списка Python для каждого элемента управления в дереве. Более подробную спецификацию окна можно также просто скопировать из вывода метода. Вызвать
+``app.Properties.child_window(title="Contains:", auto_id="13087", control_type="Edit")``.
+
+ ::
+
+    >>> app.Properties.print_control_identifiers()
+    
+    Control Identifiers:
+
+    Dialog - 'Windows NT Properties'    (L688, T518, R1065, B1006)
+    [u'Windows NT PropertiesDialog', u'Dialog', u'Windows NT Properties']
+    child_window(title="Windows NT Properties", control_type="Window")
+       | 
+       | Image - ''    (L717, T589, R749, B622)
+       | [u'', u'0', u'Image1', u'Image0', 'Image', u'1']
+       | child_window(auto_id="13057", control_type="Image")
+       | 
+       | Image - ''    (L717, T630, R1035, B632)
+       | ['Image2', u'2']
+       | child_window(auto_id="13095", control_type="Image")
+       | 
+       | Edit - 'Folder name:'    (L790, T596, R1036, B619)
+       | [u'3', 'Edit', u'Edit1', u'Edit0']
+       | child_window(title="Folder name:", auto_id="13156", control_type="Edit")
+       | 
+       | Static - 'Type:'    (L717, T643, R780, B658)
+       | [u'Type:Static', u'Static', u'Static1', u'Static0', u'Type:']
+       | child_window(title="Type:", auto_id="13080", control_type="Text")
+       | 
+       | Edit - 'Type:'    (L790, T643, R1036, B666)
+       | [u'4', 'Edit2', u'Type:Edit']
+       | child_window(title="Type:", auto_id="13059", control_type="Edit")
+       | 
+       | Static - 'Location:'    (L717, T669, R780, B684)
+       | [u'Location:Static', u'Location:', u'Static2']
+       | child_window(title="Location:", auto_id="13089", control_type="Text")
+       | 
+       | Edit - 'Location:'    (L790, T669, R1036, B692)
+       | ['Edit3', u'Location:Edit', u'5']
+       | child_window(title="Location:", auto_id="13065", control_type="Edit")
+       | 
+       | Static - 'Size:'    (L717, T695, R780, B710)
+       | [u'Size:Static', u'Size:', u'Static3']
+       | child_window(title="Size:", auto_id="13081", control_type="Text")
+       | 
+       | Edit - 'Size:'    (L790, T695, R1036, B718)
+       | ['Edit4', u'6', u'Size:Edit']
+       | child_window(title="Size:", auto_id="13064", control_type="Edit")
+       | 
+       | Static - 'Size on disk:'    (L717, T721, R780, B736)
+       | [u'Size on disk:', u'Size on disk:Static', u'Static4']
+       | child_window(title="Size on disk:", auto_id="13107", control_type="Text")
+       | 
+       | Edit - 'Size on disk:'    (L790, T721, R1036, B744)
+       | ['Edit5', u'7', u'Size on disk:Edit']
+       | child_window(title="Size on disk:", auto_id="13106", control_type="Edit")
+       | 
+       | Static - 'Contains:'    (L717, T747, R780, B762)
+       | [u'Contains:1', u'Contains:0', u'Contains:Static', u'Static5', u'Contains:']
+       | child_window(title="Contains:", auto_id="13088", control_type="Text")
+       | 
+       | Edit - 'Contains:'    (L790, T747, R1036, B770)
+       | [u'8', 'Edit6', u'Contains:Edit']
+       | child_window(title="Contains:", auto_id="13087", control_type="Edit")
+       | 
+       | Image - 'Contains:'    (L717, T773, R1035, B775)
+       | [u'Contains:Image', 'Image3', u'Contains:2']
+       | child_window(title="Contains:", auto_id="13096", control_type="Image")
+       | 
+       | Static - 'Created:'    (L717, T786, R780, B801)
+       | [u'Created:', u'Created:Static', u'Static6', u'Created:1', u'Created:0']
+       | child_window(title="Created:", auto_id="13092", control_type="Text")
+       | 
+       | Edit - 'Created:'    (L790, T786, R1036, B809)
+       | [u'Created:Edit', 'Edit7', u'9']
+       | child_window(title="Created:", auto_id="13072", control_type="Edit")
+       | 
+       | Image - 'Created:'    (L717, T812, R1035, B814)
+       | [u'Created:Image', 'Image4', u'Created:2']
+       | child_window(title="Created:", auto_id="13097", control_type="Image")
+       | 
+       | Static - 'Attributes:'    (L717, T825, R780, B840)
+       | [u'Attributes:Static', u'Static7', u'Attributes:']
+       | child_window(title="Attributes:", auto_id="13091", control_type="Text")
+       | 
+       | CheckBox - 'Read-only (Only applies to files in folder)'    (L790, T825, R1035, B841)
+       | [u'CheckBox0', u'CheckBox1', 'CheckBox', u'Read-only (Only applies to files in folder)CheckBox', u'Read-only (Only applies to files in folder)']
+       | child_window(title="Read-only (Only applies to files in folder)", auto_id="13075", control_type="CheckBox")
+       | 
+       | CheckBox - 'Hidden'    (L790, T848, R865, B864)
+       | ['CheckBox2', u'HiddenCheckBox', u'Hidden']
+       | child_window(title="Hidden", auto_id="13076", control_type="CheckBox")
+       | 
+       | Button - 'Advanced...'    (L930, T845, R1035, B868)
+       | [u'Advanced...', u'Advanced...Button', 'Button', u'Button1', u'Button0']
+       | child_window(title="Advanced...", auto_id="13154", control_type="Button")
+       | 
+       | Button - 'OK'    (L814, T968, R889, B991)
+       | ['Button2', u'OK', u'OKButton']
+       | child_window(title="OK", auto_id="1", control_type="Button")
+       | 
+       | Button - 'Cancel'    (L895, T968, R970, B991)
+       | ['Button3', u'CancelButton', u'Cancel']
+       | child_window(title="Cancel", auto_id="2", control_type="Button")
+       | 
+       | Button - 'Apply'    (L976, T968, R1051, B991)
+       | ['Button4', u'ApplyButton', u'Apply']
+       | child_window(title="Apply", auto_id="12321", control_type="Button")
+       | 
+       | TabControl - ''    (L702, T556, R1051, B962)
+       | [u'10', u'TabControlSharing', u'TabControlPrevious Versions', u'TabControlSecurity', u'TabControl', u'TabControlCustomize']
+       | child_window(auto_id="12320", control_type="Tab")
+       |    | 
+       |    | TabItem - 'General'    (L704, T558, R753, B576)
+       |    | [u'GeneralTabItem', 'TabItem', u'General', u'TabItem0', u'TabItem1']
+       |    | child_window(title="General", control_type="TabItem")
+       |    | 
+       |    | TabItem - 'Sharing'    (L753, T558, R801, B576)
+       |    | [u'Sharing', u'SharingTabItem', 'TabItem2']
+       |    | child_window(title="Sharing", control_type="TabItem")
+       |    | 
+       |    | TabItem - 'Security'    (L801, T558, R851, B576)
+       |    | [u'Security', 'TabItem3', u'SecurityTabItem']
+       |    | child_window(title="Security", control_type="TabItem")
+       |    | 
+       |    | TabItem - 'Previous Versions'    (L851, T558, R947, B576)
+       |    | [u'Previous VersionsTabItem', u'Previous Versions', 'TabItem4']
+       |    | child_window(title="Previous Versions", control_type="TabItem")
+       |    | 
+       |    | TabItem - 'Customize'    (L947, T558, R1007, B576)
+       |    | [u'CustomizeTabItem', 'TabItem5', u'Customize']
+       |    | child_window(title="Customize", control_type="TabItem")
+       | 
+       | TitleBar - 'None'    (L712, T521, R1057, B549)
+       | ['TitleBar', u'11']
+       |    | 
+       |    | Menu - 'System'    (L696, T526, R718, B548)
+       |    | [u'System0', u'System', u'System1', u'Menu', u'SystemMenu']
+       |    | child_window(title="System", auto_id="MenuBar", control_type="MenuBar")
+       |    |    | 
+       |    |    | MenuItem - 'System'    (L696, T526, R718, B548)
+       |    |    | [u'System2', u'MenuItem', u'SystemMenuItem']
+       |    |    | child_window(title="System", control_type="MenuItem")
+       |    | 
+       |    | Button - 'Close'    (L1024, T519, R1058, B549)
+       |    | [u'CloseButton', u'Close', 'Button5']
+       |    | child_window(title="Close", control_type="Button")
+
+
+Посмотрите на примеры
+--------------------
+
+Ниже приводятся следующие примеры:
+**Примечание**: Примеры зависят от языка - они будут работать только на языке продукта, для которого они были запрограммированы. Все примеры были запрограммированы для английского программного обеспечения, за исключением выделенных.
+
+- ``mspaint.py``         Управление MSPaint
+- ``notepad_fast.py``    Использует быстрые настройки времени для управления блокнотом
+- ``notepad_slow.py``    Использует медленные настройки времени для управления блокнотом
+- ``notepad_item.py``    Использует элемент, а не атрибут доступа для управления блокнотом.
+- ``misc_examples.py``    Демонстрирует некоторые исключения и как получить идентификаторы управления.
+- ``save_from_internet_explorer.py`` Сохраняет веб-страницу из Internet Explorer.
+- ``save_from_firefox.py``  Save a Web Page from Firefox.
+- ``get_winrar_info.py``    Пример того, как сделать многоязычную автоматизацию.
+  Это не идеальный пример (работает на французском, чешском и немецком WinRar)
+- ``forte_agent_sample.py``   Пример работы со сложным приложением, которое довольно динамично 
+   и часто создает разные диалоги при запуске.
+- ``windowmediaplayer.py``  Просто еще один пример - работы с чекбоксами в
+  ListView.
+- ``test_sakura.py``, ``test_sakura2.py``    Два примера автоматизации японского продукта.
+
+Автоматизация блокнота в командной строке
+-------------------------------------
+
+Ниже представлен образец работы ::
+
+	      C:\>python
+	      Python 2.4.2 (#67, Sep 28 2005, 12:41:11) [MSC v.1310 32 bit (Intel)] on win32
+	      Type "help", "copyright", "credits" or "license" for more information.
+	(1)   >>> from pywinauto import application
+	(2)   >>> app = application.Application()
+	(3)   >>> app.start("Notepad.exe")
+	      <pywinauto.application.Application object at 0x00AE0990>
+	(4)   >>> app.UntitledNotepad.draw_outline()
+	(5)   >>> app.UntitledNotepad.menu_select("Edit -> Replace")
+	(6)   >>> app.Replace.print_control_identifiers()
+	        Control Identifiers:
+
+	   	Dialog - 'Replace'    (L179, T174, R657, B409)
+		['ReplaceDialog', 'Dialog', 'Replace']
+		child_window(title="Replace", class_name="#32770")
+ 		   |
+		   | Static - 'Fi&nd what:'    (L196, T230, R292, B246)
+		   | ['Fi&nd what:Static', 'Fi&nd what:', 'Static', 'Static0', 'Static1']
+		   | child_window(title="Fi&nd what:", class_name="Static")
+		   |
+		   | Edit - ''    (L296, T226, R524, B250)
+ 		   | ['Fi&nd what:Edit', 'Edit', 'Edit0', 'Edit1']
+		   | child_window(class_name="Edit")
+  	       	   |
+ 		   | Static - 'Re&place with:'    (L196, T264, R292, B280)
+  		   | ['Re&place with:', 'Re&place with:Static', 'Static2']
+  		   | child_window(title="Re&place with:", class_name="Static")
+ 		   |
+ 		   | Edit - ''    (L296, T260, R524, B284)
+  		   | ['Edit2', 'Re&place with:Edit']
+   		   | child_window(class_name="Edit")
+   		   |
+   		   | CheckBox - 'Match &whole word only'    (L198, T304, R406, B328)
+   		   | ['CheckBox', 'Match &whole word onlyCheckBox', 'Match &whole word only', 'CheckBox0', 'CheckBox1']
+   		   | child_window(title="Match &whole word only", class_name="Button")
+   		   |
+   		   | CheckBox - 'Match &case'    (L198, T336, R316, B360)
+   		   | ['CheckBox2', 'Match &case', 'Match &caseCheckBox']
+   		   | child_window(title="Match &case", class_name="Button")
+		   |
+		   | Button - '&Find Next'    (L536, T220, R636, B248)
+		   | ['&Find Next', '&Find NextButton', 'Button', 'Button0', 'Button1']
+		   | child_window(title="&Find Next", class_name="Button")
+		   |
+		   | Button - '&Replace'    (L536, T254, R636, B282)
+		   | ['&ReplaceButton', '&Replace', 'Button2']
+		   | child_window(title="&Replace", class_name="Button")
+		   |
+		   | Button - 'Replace &All'    (L536, T288, R636, B316)
+		   | ['Replace &AllButton', 'Replace &All', 'Button3']
+		   | child_window(title="Replace &All", class_name="Button")
+		   |
+		   | Button - 'Cancel'    (L536, T322, R636, B350)
+		   | ['CancelButton', 'Cancel', 'Button4']
+		   | child_window(title="Cancel", class_name="Button")
+		   |
+		   | Button - '&Help'    (L536, T362, R636, B390)
+		   | ['&Help', '&HelpButton', 'Button5']
+		   | child_window(title="&Help", class_name="Button")
+		   |
+		   | Static - ''    (L196, T364, R198, B366)
+		   | ['ReplaceStatic', 'Static3']
+		   | child_window(class_name="Static")
+	(7)   >>> app.Replace.Cancel.click()
+	(8)   >>> app.UntitledNotepad.Edit.type_keys("Hi from Python interactive prompt %s" % str(dir()), with_spaces = True)
+	      <pywinauto.controls.win32_controls.EditWrapper object at 0x00DDC2D0>
+	(9)   >>> app.UntitledNotepad.menu_select("File -> Exit")
+	(10)  >>> app.Notepad.DontSave.click()
+	      >>>
+
+1. Импортируйте модуль pywinauto.application (обычно единственный модуль, который необходимо импортировать напрямую)
+2. Создайте экземпляр приложения. Весь доступ к приложению осуществляется через этот объект.
+3. Мы создали экземпляр Application на шаге 2, но не предоставили никакой информации о приложении Windows, на которое оно ссылалось. Используя метод start(), мы запускаем это приложение и подключаем его к Application экземпляра app.
+4. Рисуем зеленый прямоугольник вокруг диалогового окна «Блокнот», чтобы мы знали, что у нас правильное окно.
+5. Выберите пункт «Replace» в меню «Edit» в диалоговом окне «Notepad» к которому подключено приложение.
+   Это действие приведет к появлению диалогового окна Replace.
+6. Распечатайте идентификаторы для элементов управления в диалоговом окне «Replace», например, на 1-й элемент управления для редактирования в диалоговом окне «Replace» можно ссылаться с помощью любого из следующих идентификаторов::
+
+     app.Replace.Edit
+     app.Replace.Edit0
+     app.Replace.Edit1
+     app.FindwhatEdit
+
+   Последний-это тот, который дает пользователю, читающему сценарий после него, лучшее представление о том, что делает скрипт.
+7. Закройте диалог Replace. (В файле сценария безопаснее использовать close_click(), а не click(), потому что close_click() ждет немного дольше, чтобы дать Windows время для закрытия диалога.)
+8. Давайте наберем текст в текстовую область Блокнота. Без аргумента "with_spaces" пробелы не будут набраны. См. документацию для SendKeys для этого метода, поскольку это тонкая обертка вокруг SendKeys.
+9. Попросите выйти из блокнота
+10. На вопрос, хотим ли мы сохранить - нажмите кнопку «No».
+

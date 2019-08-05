@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pywinauto.uia_defines &mdash; pywinauto 0.6.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="pywinauto 0.6.7 documentation" href="../contents.html" />
+    <link rel="up" title="Basic User Input Modules" href="code.html" />
+    <link rel="next" title="pywinauto.controlproperties" href="pywinauto.controlproperties.html" />
+    <link rel="prev" title="pywinauto.uia_element_info" href="pywinauto.uia_element_info.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controlproperties.html" title="pywinauto.controlproperties"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.uia_element_info.html" title="pywinauto.uia_element_info"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" accesskey="U">Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pywinauto-uia-defines">
+<h1>pywinauto.uia_defines<a class="headerlink" href="#pywinauto-uia-defines" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><span class="target" id="module-pywinauto.uia_defines"></span><p>Common UIA definitions and helper functions</p>
+<dl class="class">
+<dt id="pywinauto.uia_defines.IUIA">
+<em class="property">class </em><code class="descclassname">pywinauto.uia_defines.</code><code class="descname">IUIA</code><a class="headerlink" href="#pywinauto.uia_defines.IUIA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Singleton class to store global COM objects from UIAutomationCore.dll</p>
+<dl class="method">
+<dt id="pywinauto.uia_defines.IUIA.build_condition">
+<code class="descname">build_condition</code><span class="sig-paren">(</span><em>process=None</em>, <em>class_name=None</em>, <em>title=None</em>, <em>control_type=None</em>, <em>content_only=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.uia_defines.IUIA.build_condition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build UIA filtering conditions</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="pywinauto.uia_defines.NoPatternInterfaceError">
+<em class="property">exception </em><code class="descclassname">pywinauto.uia_defines.</code><code class="descname">NoPatternInterfaceError</code><a class="headerlink" href="#pywinauto.uia_defines.NoPatternInterfaceError" title="Permalink to this definition">¶</a></dt>
+<dd><p>There is no such interface for the specified pattern</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pywinauto.uia_defines.get_elem_interface">
+<code class="descclassname">pywinauto.uia_defines.</code><code class="descname">get_elem_interface</code><span class="sig-paren">(</span><em>element_info</em>, <em>pattern_name</em><span class="sig-paren">)</span><a class="headerlink" href="#pywinauto.uia_defines.get_elem_interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper to retrieve an element interface by the specified pattern name</p>
+<p>TODO: handle a wrong pattern name</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pywinauto.uia_element_info.html"
+                        title="previous chapter">pywinauto.uia_element_info</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pywinauto.controlproperties.html"
+                        title="next chapter">pywinauto.controlproperties</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/code/pywinauto.uia_defines.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.controlproperties.html" title="pywinauto.controlproperties"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pywinauto.uia_element_info.html" title="pywinauto.uia_element_info"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">pywinauto 0.6.7 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="code.html" >Basic User Input Modules</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2018, Mark Mc Mahon and Contributors.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
