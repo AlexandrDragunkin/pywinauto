@@ -35,8 +35,9 @@ from __future__ import unicode_literals
 from __future__ import print_function
 
 import six
-import comtypes
 import time
+import warnings
+import comtypes
 
 from .. import backend
 from ..timings import Timings
@@ -400,13 +401,23 @@ class UIAWrapper(BaseWrapper):
     # -----------------------------------------------------------
     def set_focus(self):
         """Set the focus to this element"""
-        if self.is_keyboard_focusable() and not self.has_keyboard_focus():
-            try:
-                self.element_info.element.SetFocus()
-            except comtypes.COMError:
-                pass  # TODO: add RuntimeWarning here
+        try:
+            if self.is_minimized():
+                if self.was_maximized():
+                    self.maximize()
+                else:
+                    self.restore()
+        except uia_defs.NoPatternInterfaceError:
+            pass
+        try:
+            self.element_info.element.SetFocus()
+        except comtypes.COMError as exc:
+            warnings.warn('The window has not been focused due to ' \
+                'COMError: {}'.format(exc), RuntimeWarning)
 
         return self
+
+    # TODO: figure out how to implement .has_focus() method (if no handle available)
 
     # -----------------------------------------------------------
     def close(self):
@@ -664,7 +675,7 @@ class UIAWrapper(BaseWrapper):
             wrp = list_[item_index]
             wrp.iface_selection_item.Select()
         else:
-            raise IndexError("item not found")
+            raise IndexError("item '{0}' not found".format(item))
 
     # -----------------------------------------------------------
     def is_active(self):
@@ -770,6 +781,20 @@ class UIAWrapper(BaseWrapper):
                 """)
 
         return self
+
+    # -----------------------------------------------------------
+    def _texts_from_item_container(self):
+        """Get texts through the ItemContainer interface"""
+        texts = []
+        try:
+            com_elem = self.iface_item_container.FindItemByProperty(0, 0, uia_defs.vt_empty)
+            while com_elem:
+                itm = UIAWrapper(UIAElementInfo(com_elem))
+                texts.append(itm.texts())
+                com_elem = self.iface_item_container.FindItemByProperty(com_elem, 0, uia_defs.vt_empty)
+        except (uia_defs.NoPatternInterfaceError):
+            pass
+        return texts
 
 
 backend.register('uia', UIAElementInfo, UIAWrapper)
