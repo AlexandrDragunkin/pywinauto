@@ -65,12 +65,13 @@ in almost exactly the same ways. ::
 from __future__ import print_function
 
 import sys
-import os.path
+import os
 import pickle
 import time
 import warnings
 import multiprocessing
 import locale
+import codecs
 
 import win32process
 import win32api
@@ -90,6 +91,7 @@ from .backend import registry
 from .actionlogger import ActionLogger
 from .timings import Timings, wait_until, TimeoutError, wait_until_passes
 from .sysinfo import is_x64_Python
+from . import deprecated
 
 
 class AppStartError(Exception):
@@ -148,22 +150,27 @@ class WindowSpecification(object):
         # kwargs will contain however to find this window
         if 'backend' not in search_criteria:
             search_criteria['backend'] = registry.active_backend.name
+        if 'process' in search_criteria and 'app' in search_criteria:
+            raise KeyError('Keywords "process" and "app" cannot be combined (ambiguous). ' \
+                'Use one option at a time: Application object with keyword "app" or ' \
+                'integer process ID with keyword "process".')
+        self.app = search_criteria.get('app', None)
         self.criteria = [search_criteria, ]
         self.actions = ActionLogger()
         self.backend = registry.backends[search_criteria['backend']]
 
         if self.backend.name == 'win32':
             # Non PEP-8 aliases for partial backward compatibility
-            self.WrapperObject = self.wrapper_object
-            self.ChildWindow = self.child_window
-            self.Exists = self.exists
-            self.Wait = self.wait
-            self.WaitNot = self.wait_not
-            self.PrintControlIdentifiers = self.print_control_identifiers
+            self.WrapperObject = deprecated(self.wrapper_object)
+            self.ChildWindow = deprecated(self.child_window)
+            self.Exists = deprecated(self.exists)
+            self.Wait = deprecated(self.wait)
+            self.WaitNot = deprecated(self.wait_not)
+            self.PrintControlIdentifiers = deprecated(self.print_control_identifiers)
 
-            self.Window_ = self.window
-            self.window_ = self.window
-            self.Window = self.window
+            self.Window = deprecated(self.child_window, deprecated_name='Window')
+            self.Window_ = deprecated(self.child_window, deprecated_name='Window_')
+            self.window_ = deprecated(self.child_window, deprecated_name='window_')
 
     def __call__(self, *args, **kwargs):
         """No __call__ so return a usefull error"""
@@ -187,6 +194,10 @@ class WindowSpecification(object):
         # find the dialog
         if 'backend' not in criteria[0]:
             criteria[0]['backend'] = self.backend.name
+        if self.app is not None:
+            # find_elements(...) accepts only "process" argument
+            criteria[0]['process'] = self.app.process
+            del criteria[0]['app']
         dialog = self.backend.generic_wrapper_class(findwindows.find_element(**criteria[0]))
 
         ctrls = []
@@ -659,7 +670,7 @@ class WindowSpecification(object):
             print("Control Identifiers:")
             print_identifiers([this_ctrl, ])
         else:
-            log_file = open(filename, "w")
+            log_file = codecs.open(filename, "w", locale.getpreferredencoding())
 
             def log_func(msg):
                 log_file.write(str(msg) + os.linesep)
@@ -877,14 +888,16 @@ class Application(object):
         self.backend = registry.backends[backend]
         if self.backend.name == 'win32':
             # Non PEP-8 aliases for partial backward compatibility
-            self.Start = self.start
-            self.Connect = self.connect
-            self.CPUUsage = self.cpu_usage
-            self.WaitCPUUsageLower = self.wait_cpu_usage_lower
-            self.top_window_ = self.top_window
-            self.active_ = self.active
-            self.Windows_ = self.windows_ = self.windows
-            self.Window_ = self.window_ = self.window
+            self.Start = deprecated(self.start)
+            self.Connect = deprecated(self.connect)
+            self.CPUUsage = deprecated(self.cpu_usage)
+            self.WaitCPUUsageLower = deprecated(self.wait_cpu_usage_lower, deprecated_name='WaitCPUUsageLower')
+            self.top_window_ = deprecated(self.top_window, deprecated_name='top_window_')
+            self.active_ = deprecated(self.active, deprecated_name='active_')
+            self.Windows_ = deprecated(self.windows, deprecated_name='Windows_')
+            self.windows_ = deprecated(self.windows, deprecated_name='windows_')
+            self.Window_ = deprecated(self.window, deprecated_name='Window_')
+            self.window_ = deprecated(self.window, deprecated_name='window_')
 
         # load the match history if a file was specifed
         # and it exists
@@ -892,6 +905,10 @@ class Application(object):
             with open(datafilename, "rb") as datafile:
                 self.match_history = pickle.load(datafile)
             self.use_history = True
+
+    def __iter__(self):
+        """Raise to avoid infinite loops"""
+        raise NotImplementedError("Object is not iterable, try to use .windows()")
 
     def connect(self, **kwargs):
         """Connect to an already running process
@@ -919,10 +936,7 @@ class Application(object):
         if 'process' in kwargs:
             self.process = kwargs['process']
             try:
-                timings.wait_until_passes(
-                        timeout, retry_interval, assert_valid_process,
-                        ProcessNotFoundError, self.process
-                    )
+                wait_until(timeout, retry_interval, self.is_process_running, value=True)
             except TimeoutError:
                 raise ProcessNotFoundError('Process with PID={} not found!'.format(self.process))
             connected = True
@@ -950,6 +964,8 @@ class Application(object):
 
         elif kwargs:
             kwargs['backend'] = self.backend.name
+            if 'visible_only' not in kwargs:
+                kwargs['visible_only'] = False
             if 'timeout' in kwargs:
                 del kwargs['timeout']
                 self.process = timings.wait_until_passes(
@@ -1191,8 +1207,8 @@ class Application(object):
             raise AppNotConnected("Please use start or connect before trying "
                                   "anything else")
         else:
-            # add the restriction for this particular process
-            kwargs['process'] = self.process
+            # add the restriction for this particular application
+            kwargs['app'] = self
             win_spec = WindowSpecification(kwargs)
 
         return win_spec
@@ -1226,29 +1242,29 @@ class Application(object):
         """Should not be used - part of application data implementation"""
         return self.match_history[index]
 
-    def kill(self):
+    def kill(self, soft=False):
         """
-        Try to close and kill the application
+        Try to close (optional) and kill the application
 
         Dialogs may pop up asking to save data - but the application
         will be killed anyway - you will not be able to click the buttons.
         This should only be used when it is OK to kill the process like you
         would do in task manager.
         """
-        windows = self.windows(visible_only=True)
+        if soft:
+            windows = self.windows(visible_only=True)
 
-        for win in windows:
+            for win in windows:
+                try:
+                    if hasattr(win, 'close'):
+                        win.close()
+                        continue
+                except TimeoutError:
+                    self.actions.log('Failed to close top level window')
 
-            try:
-                if hasattr(win, 'close'):
-                    win.close()
-                    continue
-            except TimeoutError:
-                self.actions.log('Failed to close top level window')
-
-            if hasattr(win, 'force_close'):
-                self.actions.log('application.kill: call win.force_close')
-                win.force_close()
+                if hasattr(win, 'force_close'):
+                    self.actions.log('Application.kill: call win.force_close()')
+                    win.force_close()
 
         try:
             process_wait_handle = win32api.OpenProcess(
@@ -1260,26 +1276,29 @@ class Application(object):
 
         # so we have either closed the windows - or the app is hung
         killed = True
-        if process_wait_handle:
-            try:
-                win32api.TerminateProcess(process_wait_handle, 0)
-            except win32gui.error:
-                self.actions.log('Process {0} seems already killed'.format(self.process))
+        try:
+            if process_wait_handle:
+                try:
+                    win32api.TerminateProcess(process_wait_handle, 0)
+                except win32gui.error:
+                    self.actions.log('Process {0} seems already killed'.format(self.process))
+        finally:
+            win32api.CloseHandle(process_wait_handle)
 
-        win32api.CloseHandle(process_wait_handle)
-
+        self.wait_for_process_exit()
         return killed
 
     # Non PEP-8 aliases
-    kill_ = Kill_ = kill
+    kill_ = deprecated(kill, deprecated_name='kill_')
+    Kill_ = deprecated(kill, deprecated_name='Kill_')
 
     def is_process_running(self):
         """
-        Checks that process is running.
+        Check that process is running.
 
         Can be called before start/connect.
 
-        Returns True if process is running otherwise - False
+        Return True if process is running otherwise - False.
         """
         is_running = False
         try:
@@ -1318,6 +1337,14 @@ def assert_valid_process(process_id):
     if not process_handle:
         message = "Process with ID '%d' could not be opened" % process_id
         raise ProcessNotFoundError(message)
+
+    # finished process can still exist and have exit code,
+    # but it's not usable any more, so let's check it
+    exit_code = win32process.GetExitCodeProcess(process_handle)
+    is_running = (exit_code == win32defines.PROCESS_STILL_ACTIVE)
+    if not is_running:
+        raise ProcessNotFoundError('Process with pid = {} has been already ' \
+            'finished with exit code = {}'.format(process_id, exit_code))
 
     return process_handle
 
